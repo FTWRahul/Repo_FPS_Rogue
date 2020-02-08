@@ -2,7 +2,12 @@
 
 public class InputHandler : MonoBehaviour
 {
+    #region References
+
     private MovementController _movementController;
+    //private something for shooting
+
+    #endregion
 
     private void Start()
     {
@@ -28,5 +33,10 @@ public class InputHandler : MonoBehaviour
             _movementController.isRunning = false;
 
         _movementController.isJumpClicked = Input.GetKeyDown(KeyCode.Space);
+    }
+
+    void GetShootingInputData()
+    {
+        //TODO: Set all weapon input here like for movement
     }
 }
