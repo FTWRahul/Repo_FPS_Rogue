@@ -82,30 +82,16 @@ public class MovementController : MonoBehaviour
         {
             // Check if Grounded,Wall etc
             CheckIfGrounded();
-            /*
-            CheckIfWall();
-            */
 
             // Apply Smoothing
             SmoothInput();
             SmoothSpeed();
             SmoothDir();
-
-            /*if(experimental)
-                SmoothInputMagnitude();
-            */
-
+            
             // Calculate Movement
             CalculateMovementDirection();
             CalculateSpeed();
             CalculateFinalMovement();
-
-            // Handle Player Movement, Gravity, Jump, Crouch etc.
-            /*HandleCrouch();
-            HandleHeadBob();
-            HandleRunFOV();
-            HandleCameraSway();
-            HandleLanding();*/
 
             ApplyGravity();
             ApplyMovement();
