@@ -6,4 +6,5 @@ using UnityEngine.Events;
 public class Events
 {
     [System.Serializable] public class OnHealthChangeEvent: UnityEvent {}
+    [System.Serializable] public class OnShootEvent: UnityEvent {}
 }

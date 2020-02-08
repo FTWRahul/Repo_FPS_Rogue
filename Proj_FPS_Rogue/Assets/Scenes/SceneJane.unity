@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -839,6 +839,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108899320}
   m_CullTransparentMesh: 0
+--- !u!4 &139196571 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2623461487636665698, guid: 8e1f680fb43698c4ca7d7f9f8626deb9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1845169905}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &146712456
 GameObject:
   m_ObjectHideFlags: 0
@@ -1634,6 +1640,8 @@ GameObject:
   - component: {fileID: 768400550}
   - component: {fileID: 768400554}
   - component: {fileID: 768400553}
+  - component: {fileID: 768400555}
+  - component: {fileID: 768400556}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1721,6 +1729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBody: {fileID: 2140237108}
   yMinMax: {x: 90, y: 60}
+  mouseInputVector: {x: 0, y: 0}
 --- !u!114 &768400554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1752,6 +1761,50 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &768400555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768400549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c7989a39cd241a459ec85b719929e7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2140237109}
+        m_MethodName: AddRecoil
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  projectilePrefab: {fileID: 3573303896374179134, guid: e3362c30116f70644acabfee92083505,
+    type: 3}
+  muzzleTransform: {fileID: 1764196960}
+  reloadTime: 0
+  rateOfFire: 0.1
+  projectileForce: 100
+--- !u!114 &768400556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768400549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c6b6193dee53ce4abf563ddb7ed064d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &866482280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1902,7 +1955,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 373280569}
-  _healthState: {fileID: 962728115}
 --- !u!1 &962728110
 GameObject:
   m_ObjectHideFlags: 0
@@ -3328,6 +3380,36 @@ Transform:
   m_Father: {fileID: 296940140}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1764196959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1764196960}
+  m_Layer: 0
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1764196960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764196959}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1087, z: 0.5337}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 139196571}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1792567505
 GameObject:
   m_ObjectHideFlags: 0
@@ -3428,6 +3510,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1208490919}
     m_Modifications:
+    - target: {fileID: 2623461487633974318, guid: 8e1f680fb43698c4ca7d7f9f8626deb9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9459d6e37ca5aa348b62c1b8d1f7106e, type: 2}
+    - target: {fileID: 2623461487633974318, guid: 8e1f680fb43698c4ca7d7f9f8626deb9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8619298727a48ac4fb6c654822dce95f, type: 2}
+    - target: {fileID: 2623461487633974318, guid: 8e1f680fb43698c4ca7d7f9f8626deb9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: be36cd8cf5eb98a45abc87c4eda07360, type: 2}
+    - target: {fileID: 2623461487633974318, guid: 8e1f680fb43698c4ca7d7f9f8626deb9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4af0dc058e449064dbe0aa83054c6ed2, type: 2}
     - target: {fileID: 2623461487636665652, guid: 8e1f680fb43698c4ca7d7f9f8626deb9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4985,11 +5087,11 @@ PrefabInstance:
     - target: {fileID: 13700002, guid: 88f9dc305d66788419809b4a8f0c1fd3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4652a28e12455e9429513f22349f84e5, type: 2}
+      objectReference: {fileID: 2100000, guid: 45440deedf873134aba4c809762027f6, type: 2}
     - target: {fileID: 13700002, guid: 88f9dc305d66788419809b4a8f0c1fd3, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: bf7b4b1b0ed29b04db1664e5da57cda6, type: 2}
+      objectReference: {fileID: 2100000, guid: 8a200a19ca93e0a4bbf965e0ff120bc3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88f9dc305d66788419809b4a8f0c1fd3, type: 3}
 --- !u!1 &6977683862324958234

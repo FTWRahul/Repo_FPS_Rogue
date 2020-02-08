@@ -8,6 +8,7 @@ public class PlayerCameraController : MonoBehaviour
     public Transform playerBody;
     [SerializeField] private Vector2 yMinMax;
     float xAxisClamp = 0;
+    public Vector2 mouseInputVector;
 
     void Awake()
     {
@@ -25,11 +26,10 @@ public class PlayerCameraController : MonoBehaviour
 
     void RotateCamera()
     {
-        float mouseX = Input.GetAxisRaw("Mouse X");
-        float mouseY = Input.GetAxisRaw("Mouse Y");
 
-        float rotAmountX = mouseX * mouseSensitivity;
-        float rotAmountY = mouseY * mouseSensitivity;
+
+        float rotAmountX = mouseInputVector.x * mouseSensitivity;
+        float rotAmountY = mouseInputVector.y * mouseSensitivity;
 
         xAxisClamp -= rotAmountY;
 

@@ -32,7 +32,7 @@
 		    Tags
             {
                 "LightMode" = "UniversalForward"
-                "PassFlags" = "OnlyDirectional"
+                "PassFlags" = "BlinnPhong"
             }
 			CGPROGRAM
 			#pragma vertex vert
