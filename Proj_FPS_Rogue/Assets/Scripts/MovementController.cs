@@ -42,8 +42,11 @@ public class MovementController : MonoBehaviour
     #endregion
 
     #region Non serialize private
+    
     private CharacterController _characterController;
+    private CharacterData _characterData;
     private RaycastHit _raycastHit;
+    
     #endregion
 
     #region DEBUG
@@ -74,6 +77,7 @@ public class MovementController : MonoBehaviour
     private void GetComponents()
     {
         _characterController = GetComponent<CharacterController>();
+        _characterData = GetComponent<CharacterData>();
     }
     
     protected virtual void Update()
@@ -95,8 +99,11 @@ public class MovementController : MonoBehaviour
 
             ApplyGravity();
             ApplyMovement();
+            
+            //Set all states to character data 
+            SetData();
 
-            previouslyGrounded = isGrounded;
+            /*previouslyGrounded = isGrounded;*/
         }
     }
     private void CheckIfGrounded()
@@ -211,6 +218,32 @@ public class MovementController : MonoBehaviour
     void ApplyMovement()
     {
         _characterController.Move(finalMoveVector * Time.deltaTime);
+    }
+
+    void SetData()
+    {
+        if (!HasInput)
+        {
+            _characterData.SetLocoState(CharacterData.LocoState.STAND);
+        }
+        else
+        {
+            if (isGrounded)
+            {
+                _characterData.SetLocoState(CharacterData.LocoState.GROUND_MOVE);
+            }
+            else
+            {
+                if (isJumpClicked)
+                {
+                    _characterData.SetLocoState(CharacterData.LocoState.JUMP);
+                }
+                else if (isFalling)
+                {
+                    _characterData.SetLocoState(CharacterData.LocoState.IN_AIR);
+                }
+            }
+        }
     }
 
 }
