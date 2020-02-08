@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class HealthState : MonoBehaviour, IReceiveDamage
 {
+    public Events.OnHealthChangeEvent onHealthChange;
+    
     public float health;
     public float maxHealth;
 
@@ -30,6 +32,7 @@ public class HealthState : MonoBehaviour, IReceiveDamage
             return;
 
         health -= damage;
+        onHealthChange?.Invoke();
         if (health <= 0)
         {
             health = 0;
