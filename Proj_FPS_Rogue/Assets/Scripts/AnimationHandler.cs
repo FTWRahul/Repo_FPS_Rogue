@@ -16,6 +16,7 @@ public class AnimationHandler : MonoBehaviour
     private static readonly int Run = Animator.StringToHash("AnimState_Run");
     private static readonly int Jump = Animator.StringToHash("AnimState_Jump");
     private static readonly int InAir = Animator.StringToHash("AnimState_InAir");
+    
     private static readonly int PrimaryFire = Animator.StringToHash("Action_PrimaryFire");
     private static readonly int SecondaryFire = Animator.StringToHash("Action_SecondaryFire");
     private static readonly int Reloading = Animator.StringToHash("Action_Reloading");
@@ -49,6 +50,6 @@ public class AnimationHandler : MonoBehaviour
 
     private void UpdateAction()
     {
-        
+        _animator.SetBool(PrimaryFire, _characterData.action == CharacterData.Action.PRIMARY_FIRE);
     }
 }
