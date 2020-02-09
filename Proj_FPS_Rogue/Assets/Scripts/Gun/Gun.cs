@@ -12,11 +12,7 @@ public class Gun : MonoBehaviour
     public IGunPart PartToPickUp
     {
         get => currentPart;
-        set
-        {
-            currentPart = value;
-            
-        }
+        set => currentPart = value;
     }
 
     public IShootBehaviour ShootBehaviour
