@@ -21,6 +21,9 @@ public class GunPart : MonoBehaviour, IGunPart
                     transform.parent = slot.Key.transform;
                     transform.localPosition = Vector3.zero;
                     transform.localRotation = Quaternion.Euler(Vector3.zero);
+
+                    GetComponent<Collider>().enabled = false;
+                    gun.PartToPickUp = null;
                     //Add Part
                     break;
                 }
@@ -51,6 +54,10 @@ public class GunPart : MonoBehaviour, IGunPart
 
     private void OnTriggerExit(Collider other)
     {
-        _gun.PartToPickUp = null;
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponentInChildren<Gun>().PartToPickUp = null;
+        }
+        
     }
 }
