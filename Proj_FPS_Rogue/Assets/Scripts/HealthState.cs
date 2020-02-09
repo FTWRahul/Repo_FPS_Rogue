@@ -26,7 +26,7 @@ public class HealthState : MonoBehaviour, IReceiveDamage
         health = maxHealth;
     }
     
-    public void ApplyDamage(float damage)
+    public void ApplyDamage(int damage)
     {
         if (health <= 0)
             return;
@@ -47,5 +47,5 @@ public class HealthState : MonoBehaviour, IReceiveDamage
 
 public interface IReceiveDamage
 {
-    void ApplyDamage(float damage);
+    void ApplyDamage(int damage);
 }

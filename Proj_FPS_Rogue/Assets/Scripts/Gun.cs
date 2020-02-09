@@ -14,6 +14,7 @@ public class Gun : MonoBehaviour
     public float reloadTime;
     public float rateOfFire;
     public float projectileForce;
+    public int damage;
 
     private float _timeBetweenLastShot;
 

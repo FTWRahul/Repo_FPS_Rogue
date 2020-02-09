@@ -15,6 +15,6 @@ public class DefaultShootBehaviour : MonoBehaviour , IShootBehaviour
     public void Fire()
     {
         Projectile go = Instantiate(_gun.projectilePrefab, _gun.muzzleTransform.position, Quaternion.identity).GetComponent<Projectile>();
-        go.Initialize(_gun.projectileForce, _gun.transform.forward);
+        go.Initialize(_gun.projectileForce, _gun.transform.forward, _gun.damage);
     }
 }

@@ -9,16 +9,18 @@ public class Projectile : MonoBehaviour
 
     private float _force;
     private Vector3 _shootDir;
+    private int _damage;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
     }
 
-    public void Initialize(float force , Vector3 dir)
+    public void Initialize(float force , Vector3 dir, int damage)
     {
         _force = force;
         _shootDir = dir;
+        _damage = damage;
         Launch();
     }
 
@@ -30,6 +32,11 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        Destroy(this);
+
+        if (other.collider.GetComponent<IReceiveDamage>() != null)
+        {
+            other.collider.GetComponent<IReceiveDamage>().ApplyDamage(_damage);            
+            Destroy(this);
+        }
     }
 }

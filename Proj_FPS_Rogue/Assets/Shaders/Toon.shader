@@ -32,7 +32,7 @@
 		    Tags
             {
                 "LightMode" = "UniversalForward"
-                "PassFlags" = "BlinnPhong"
+                "PassFlags" = "OnlyDirectional"
             }
 			CGPROGRAM
 			#pragma vertex vert
@@ -111,7 +111,8 @@
 			    // At the top of the fragment shader.
                 float3 normal = normalize(i.worldNormal);
                 float NdotL = dot(_WorldSpaceLightPos0, normal);
-                
+                float2 uv = float2(1 - (NdotL * 0.5 + 0.5), 0.5);
+
                 // In the fragment shader, above the existing lightIntensity declaration.
                 float shadow = SHADOW_ATTENUATION(i);
                 
