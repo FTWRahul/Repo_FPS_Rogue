@@ -7,6 +7,7 @@ public class InputHandler : MonoBehaviour
 
     private MovementController _movementController;
     private ActionController _actionController;
+    public Vector2 mounseXY;
 
     #endregion
 
@@ -21,6 +22,7 @@ public class InputHandler : MonoBehaviour
     {
         GetMovementInputData();
         GetShootingInputData();
+        GetInteractionInputData();
     }
 
     void GetMovementInputData()
@@ -41,6 +43,12 @@ public class InputHandler : MonoBehaviour
 
     void GetShootingInputData()
     {
+        mounseXY = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
         _actionController.isPrimaryClicked = Input.GetKey(KeyCode.Mouse0);
+    }
+
+    void GetInteractionInputData()
+    {
+        _actionController.isIntractPressed = Input.GetKeyDown(KeyCode.E);
     }
 }

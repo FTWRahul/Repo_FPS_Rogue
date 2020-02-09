@@ -9,13 +9,14 @@ public class PlayerCameraController : MonoBehaviour
     [SerializeField] private Vector2 yMinMax;
     float xAxisClamp = 0;
     public Vector2 mouseInputVector;
-
+    private InputHandler _inputHandler;
+    
     void Awake()
     {
+        _inputHandler = GetComponentInParent<InputHandler>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         this.enabled = true;
-
     }
 
     // Update is called once per frame
@@ -26,6 +27,7 @@ public class PlayerCameraController : MonoBehaviour
 
     void RotateCamera()
     {
+        mouseInputVector = _inputHandler.mounseXY;
         float rotAmountX = mouseInputVector.x * mouseSensitivity;
         float rotAmountY = mouseInputVector.y * mouseSensitivity;
 

@@ -4,7 +4,9 @@ public class ActionController : MonoBehaviour
 {
     public bool isPrimaryClicked;
 
-    private bool HasInput=> isPrimaryClicked == true;
+    public bool isIntractPressed;
+
+    private bool HasInput => isPrimaryClicked == true;
     
     private Gun _primaryGun;
     private PlayerCameraController _playerCameraController;
@@ -20,11 +22,16 @@ public class ActionController : MonoBehaviour
     private void Update()
     {
         //why here?
-        _playerCameraController.mouseInputVector =  new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+        //_playerCameraController.mouseInputVector =  new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
         
         if (isPrimaryClicked)
         {
             _primaryGun.Shoot();
+        }
+
+        if (isIntractPressed)
+        {
+            _primaryGun.TryEquipingPart();
         }
         
         SetData();
