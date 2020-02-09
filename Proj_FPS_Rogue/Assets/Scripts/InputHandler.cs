@@ -1,21 +1,20 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
     #region References
 
     private MovementController _movementController;
-    //private something for shooting
-    private PlayerCameraController _playerCameraController;
-    private Gun _gun;
+    private ActionController _actionController;
 
     #endregion
 
     private void Start()
     {
         _movementController = GetComponent<MovementController>();
-        _playerCameraController = GetComponentInChildren<PlayerCameraController>();
-        _gun = _playerCameraController.GetComponent<Gun>();
+        _actionController = GetComponent<ActionController>();
+        
     }
 
     private void Update()
@@ -42,16 +41,6 @@ public class InputHandler : MonoBehaviour
 
     void GetShootingInputData()
     {
-        //TODO: Set all weapon input here like for movement
-        _playerCameraController.mouseInputVector =  new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
-        if (Input.GetKey(KeyCode.Mouse0))
-        {
-            _gun.Shoot();
-        }
-    }
-
-    public void AddRecoil()
-    {
-        _playerCameraController.mouseInputVector.y += .2f;
+        _actionController.isPrimaryClicked = Input.GetKey(KeyCode.Mouse0);
     }
 }

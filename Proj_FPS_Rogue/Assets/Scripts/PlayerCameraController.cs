@@ -26,8 +26,6 @@ public class PlayerCameraController : MonoBehaviour
 
     void RotateCamera()
     {
-
-
         float rotAmountX = mouseInputVector.x * mouseSensitivity;
         float rotAmountY = mouseInputVector.y * mouseSensitivity;
 
