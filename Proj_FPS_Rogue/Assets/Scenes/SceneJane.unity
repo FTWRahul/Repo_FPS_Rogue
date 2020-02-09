@@ -1793,6 +1793,7 @@ MonoBehaviour:
   reloadTime: 0
   rateOfFire: 0.1
   projectileForce: 100
+  damage: 10
 --- !u!114 &768400556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2066,7 +2067,7 @@ MonoBehaviour:
   onHealthChange:
     m_PersistentCalls:
       m_Calls: []
-  health: 0
+  health: 100
   maxHealth: 100
 --- !u!1 &966971873
 GameObject:
