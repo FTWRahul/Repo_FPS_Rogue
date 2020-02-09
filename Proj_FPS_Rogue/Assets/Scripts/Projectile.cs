@@ -35,8 +35,8 @@ public class Projectile : MonoBehaviour
 
         if (other.collider.GetComponent<IReceiveDamage>() != null)
         {
-            other.collider.GetComponent<IReceiveDamage>().ApplyDamage(_damage);            
-            Destroy(this);
+            other.collider.GetComponent<IReceiveDamage>().ApplyDamage(_damage);
         }
+        Destroy(this.gameObject);
     }
 }
