@@ -2946,9 +2946,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: AnimState_Stand
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: Action_Melee
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102484878189688024}
   m_Solo: 0
