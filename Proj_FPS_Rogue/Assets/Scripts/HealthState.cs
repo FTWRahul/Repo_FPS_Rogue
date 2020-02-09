@@ -4,9 +4,10 @@ using UnityEngine;
 public class HealthState : MonoBehaviour, IReceiveDamage
 {
     public Events.OnHealthChangeEvent onHealthChange;
+    public Events.OnDamageEvent onDamage;
     
-    public float health;
-    public float maxHealth;
+    public int health;
+    public int maxHealth;
 
     private void Start()
     {
@@ -32,7 +33,8 @@ public class HealthState : MonoBehaviour, IReceiveDamage
             return;
 
         health -= damage;
-        onHealthChange?.Invoke();
+        onHealthChange?.Invoke(health);
+        onDamage?.Invoke(damage);
         if (health <= 0)
         {
             health = 0;
@@ -43,9 +45,12 @@ public class HealthState : MonoBehaviour, IReceiveDamage
     {
         Destroy(gameObject);
     }
+
+    [ContextMenu("Damage")]
+    public void Deal20()
+    {
+        ApplyDamage(20);
+    }
 }
 
-public interface IReceiveDamage
-{
-    void ApplyDamage(int damage);
-}
+
