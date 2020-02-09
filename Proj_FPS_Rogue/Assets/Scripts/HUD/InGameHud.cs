@@ -9,6 +9,7 @@ public class InGameHud : MonoBehaviour
     private Canvas _canvas;
 
     private HealthState _healthState;
+    private CharacterData _characterData;
 
     public void Awake()
     {
@@ -18,11 +19,19 @@ public class InGameHud : MonoBehaviour
 
         _healthState = GetComponentInParent<HealthState>();
         _healthState.onHealthChange.AddListener(UpdateHealthBar);
+
+        _characterData = GetComponentInParent<CharacterData>();
+        _characterData.onLastDamageChanged.AddListener(UpdateCrosshair);
     }
 
     private void UpdateHealthBar(int health)
     {
         _healthBar.UpdateBar(health);
+    }
+
+    private void UpdateCrosshair()
+    {
+        _crosshair.ShowHitMarker(_characterData.lastShoot.isLethal);
     }
     
     

@@ -1,7 +1,6 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-
 public class FloatingDamage : MonoBehaviour
 {
     public Vector2 offsetEndMax;
