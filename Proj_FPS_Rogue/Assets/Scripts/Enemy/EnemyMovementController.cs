@@ -39,6 +39,8 @@ namespace Enemy
 
                 _navMeshAgent.SetDestination(_desirePosition);
             }
+            
+            FaceTarget();
         }
 
         void CalculateDesirePosition()
@@ -47,6 +49,14 @@ namespace Enemy
             {
                 _desirePosition = myNavHit.position;
             }
+        }
+        
+        private void FaceTarget()
+        {
+            Vector3 lookPosition = TargetPosition;
+            lookPosition.y = 0;
+            Quaternion rot = Quaternion.LookRotation(lookPosition);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rot, 1);  
         }
     }
 }
