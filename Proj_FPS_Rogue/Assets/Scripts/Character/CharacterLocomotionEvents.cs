@@ -17,7 +17,6 @@ public class CharacterLocomotionEvents : AudioEvents
     
     public void OnCharEvent(String e)
     {
-        Debug.Log(e);
         switch (e)
         {
             case "FootDown":
