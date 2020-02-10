@@ -46,6 +46,11 @@ public class Gun : MonoBehaviour
         InitializeDictionary();
     }
 
+    public void UpdateDictionaryValue(PartSlot slot ,IGunPart part)
+    {
+        parts[slot] = part;
+    }
+
     private void InitializeDictionary()
     {
         foreach (var slot in partSlot)
