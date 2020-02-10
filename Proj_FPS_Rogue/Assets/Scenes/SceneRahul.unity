@@ -5485,7 +5485,7 @@ MonoBehaviour:
   muzzleTransform: {fileID: 241873852}
   reloadTime: 0
   rateOfFire: 0.1
-  projectileForce: 100
+  projectileForce: 30
   damage: 10
   bulletModifiers: []
   partSlot:
