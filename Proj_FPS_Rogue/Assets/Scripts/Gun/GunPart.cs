@@ -3,10 +3,14 @@ using UnityEngine;
 
 public class GunPart : MonoBehaviour, IGunPart
 {
-    [SerializeField]
-    private GunPartEnum partEnum;
+    public GunPartSO partSO;
     
     private Gun _gun;
+
+    public void Initialize(GunPartSO so)
+    {
+        partSO = so;
+    }
     
     public virtual void TryPickUp(Gun gun)
     {
@@ -14,7 +18,7 @@ public class GunPart : MonoBehaviour, IGunPart
 
         foreach (var slot in _gun.parts)
         {
-            if (slot.Key.partEnum == partEnum)
+            if (slot.Key.partEnum == partSO.partEnum)
             {
                 if (slot.Value == null)
                 {
@@ -23,7 +27,8 @@ public class GunPart : MonoBehaviour, IGunPart
                     transform.localRotation = Quaternion.Euler(Vector3.zero);
 
                     GetComponent<Collider>().enabled = false;
-                    gun.PartToPickUp = null;
+                    _gun.UpdateDictionaryValue(slot.Key, this);
+                    _gun.PartToPickUp = null;
                     //Add Part
                     break;
                 }
@@ -38,7 +43,7 @@ public class GunPart : MonoBehaviour, IGunPart
 
     public GunPartEnum Part()
     {
-        return partEnum;
+        return partSO.partEnum;
     }
     
     private void OnTriggerStay(Collider other)
