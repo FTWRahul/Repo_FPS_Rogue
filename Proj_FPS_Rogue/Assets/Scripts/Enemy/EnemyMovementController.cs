@@ -54,9 +54,8 @@ namespace Enemy
         private void FaceTarget()
         {
             Vector3 lookPosition = TargetPosition;
-            lookPosition.y = 0;
-            Quaternion rot = Quaternion.LookRotation(lookPosition);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rot, 1);  
+            lookPosition.y = transform.position.y;
+            transform.LookAt(lookPosition);
         }
     }
 }

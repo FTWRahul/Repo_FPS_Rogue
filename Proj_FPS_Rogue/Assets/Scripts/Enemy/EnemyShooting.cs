@@ -47,24 +47,28 @@ public class EnemyShooting : MonoBehaviour
 
     private void Update()
     {
-        inRange = Vector3.Distance(transform.position, _target.position) <= attackRange;
-        
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
-        Vector3 toTraget = _target.position - transform.position;
-        float angle = Vector3.Angle(forward, toTraget);
-        Debug.Log(angle);
-
-        inAngle = angle <= maxAngleDelta;
+        inRange = (_target.position - transform.position).sqrMagnitude <= attackRange * attackRate;
         //also check if enemy is looking at target
         
-        if (inRange && inAngle && !isReloading)
+        if (inRange && !isReloading)
         {
-            CalculatePrediction();
-            Attack();
-            StartCoroutine(Reloading());
+            Vector3 forward = transform.TransformDirection(Vector3.forward);
+            Vector3 toTraget = _target.position - transform.position;
+            float angle = Vector3.Angle(forward, toTraget);
+            Debug.Log(angle);
+        
+            inAngle = angle <= maxAngleDelta;
+            
+            if (inAngle)
+            {
+                CalculatePrediction();
+                Attack();
+                StartCoroutine(Reloading());
+            }
         }
     }
 
+    
     void CalculatePrediction()
     {
         _distanceToTarget = Vector3.Distance(transform.position, _target.position);
