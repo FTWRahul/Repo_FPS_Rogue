@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace Enemy
 {
@@ -8,49 +7,38 @@ namespace Enemy
     {
         #region Movement settings
 
-        public float targetStoppingDistance;
+        public float stoppingDistance;
         public float movementSpeed;
         
         #endregion
-
+        
         #region References
 
-        private Transform _target;
+        private Transform _target; 
         private Vector3 TargetPosition => _target.position;
-        private Vector3 _desirePosition;
-        
-        private NavMeshAgent _navMeshAgent;
+        private IMovementBehaviour _movementBehaviour;
 
         #endregion
+
 
         private void Start()
         {
             _target = FindObjectOfType<CharacterData>().transform;
-            _navMeshAgent = GetComponent<NavMeshAgent>();
-            _navMeshAgent.speed = movementSpeed;
-            _navMeshAgent.stoppingDistance = targetStoppingDistance;
+            
+            _movementBehaviour = GetComponent<IMovementBehaviour>();
+            _movementBehaviour.Init(movementSpeed,stoppingDistance);
         }
 
         private void Update()
         {
-            if (Vector3.Distance(transform.position, TargetPosition) > targetStoppingDistance)
+            if (Vector3.Distance(transform.position, TargetPosition) > stoppingDistance)
             {
-                CalculateDesirePosition();
-
-                _navMeshAgent.SetDestination(_desirePosition);
+                _movementBehaviour.Move(TargetPosition);
             }
             
             FaceTarget();
         }
 
-        void CalculateDesirePosition()
-        {
-            if(NavMesh.SamplePosition(TargetPosition, out var myNavHit, targetStoppingDistance, -1))
-            {
-                _desirePosition = myNavHit.position;
-            }
-        }
-        
         private void FaceTarget()
         {
             Vector3 lookPosition = TargetPosition;

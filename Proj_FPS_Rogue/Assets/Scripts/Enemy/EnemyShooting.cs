@@ -73,7 +73,7 @@ public class EnemyShooting : MonoBehaviour
     {
         _distanceToTarget = Vector3.Distance(transform.position, _target.position);
         _projectileTravelTime = _distanceToTarget / projectileSpeed;
-        _predictedPosition = _target.position + _targetCharacterController.velocity * _projectileTravelTime; /* + target movement vector *_projectileTravelTime) */
+        _predictedPosition = _target.position + _targetCharacterController.velocity * _projectileTravelTime;
         _shootingDirectionNormalized = (_predictedPosition - transform.position).normalized;
     }
 
