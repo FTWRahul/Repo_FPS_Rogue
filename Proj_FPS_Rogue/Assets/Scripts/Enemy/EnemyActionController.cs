@@ -38,7 +38,7 @@ namespace Enemy
                     _attackBehaviour = new EnemyDistanceAttack(settings);
                     break;
                 case EnemyActionType.MELEE:
-                    
+                    _attackBehaviour = new EnemyMeleeAttack(settings);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

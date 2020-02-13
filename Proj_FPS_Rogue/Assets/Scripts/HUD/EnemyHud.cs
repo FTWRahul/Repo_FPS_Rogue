@@ -20,6 +20,16 @@ public class EnemyHud : MonoBehaviour
         _healthState.onDamage.AddListener(FloatDamage);
     }
 
+    private void OnBecameVisible()
+    {
+        _healthBar.gameObject.SetActive(true);
+    }
+
+    private void OnBecameInvisible()
+    {
+        _healthBar.gameObject.SetActive(false);
+    }
+
     private void UpdateHealthBar(int health)
     {
         _healthBar.UpdateBar(health);

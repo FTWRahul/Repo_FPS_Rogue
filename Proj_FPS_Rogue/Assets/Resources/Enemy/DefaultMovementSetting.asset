@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DefaultMovementSetting
   m_EditorClassIdentifier: 
   movementType: 0
-  stoppingDistance: 5
-  movementSpeed: 5
+  stoppingDistance: 10
+  movementSpeed: 2

@@ -389,6 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canAttack: 0
+  isPlayerBlocked: 0
   isAttacking: 0
   isResetting: 0
 --- !u!114 &18363475
@@ -514,6 +515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inRange: 0
+  isPlayerBlocked: 0
   inAngle: 0
   enemyState: 0
   movementSetting: {fileID: 11400000, guid: ff39fecdd41ada04492d7eb7c3b1e4ec, type: 2}
@@ -1525,6 +1527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canAttack: 0
+  isPlayerBlocked: 0
   isAttacking: 0
   isResetting: 0
 --- !u!114 &216413960
@@ -1650,6 +1653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inRange: 0
+  isPlayerBlocked: 0
   inAngle: 0
   enemyState: 0
   movementSetting: {fileID: 11400000, guid: 8246cf0614bd0ac48beea91596de5388, type: 2}
@@ -2720,6 +2724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canAttack: 0
+  isPlayerBlocked: 0
   isAttacking: 0
   isResetting: 0
 --- !u!114 &564036076
@@ -2845,6 +2850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inRange: 0
+  isPlayerBlocked: 0
   inAngle: 0
   enemyState: 0
   movementSetting: {fileID: 11400000, guid: ff39fecdd41ada04492d7eb7c3b1e4ec, type: 2}
@@ -2967,6 +2973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canAttack: 0
+  isPlayerBlocked: 0
   isAttacking: 0
   isResetting: 0
 --- !u!114 &628573241
@@ -3092,6 +3099,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inRange: 0
+  isPlayerBlocked: 0
   inAngle: 0
   enemyState: 0
   movementSetting: {fileID: 11400000, guid: 8246cf0614bd0ac48beea91596de5388, type: 2}
@@ -5998,6 +6006,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floatingDamage: {fileID: 4863038698852865461, guid: 484608891cad0cd4086992fac74ab0df,
     type: 3}
+--- !u!1 &949032492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 949032493}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &949032493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949032492}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &962728110
 GameObject:
   m_ObjectHideFlags: 0
@@ -6144,6 +6182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canAttack: 0
+  isPlayerBlocked: 0
   isAttacking: 0
   isResetting: 0
 --- !u!114 &962728120
@@ -6159,6 +6198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inRange: 0
+  isPlayerBlocked: 0
   inAngle: 0
   enemyState: 0
   movementSetting: {fileID: 11400000, guid: ff39fecdd41ada04492d7eb7c3b1e4ec, type: 2}
@@ -6451,6 +6491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canAttack: 0
+  isPlayerBlocked: 0
   isAttacking: 0
   isResetting: 0
 --- !u!114 &1103658750
@@ -6576,6 +6617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inRange: 0
+  isPlayerBlocked: 0
   inAngle: 0
   enemyState: 0
   movementSetting: {fileID: 11400000, guid: 8246cf0614bd0ac48beea91596de5388, type: 2}
@@ -9131,6 +9173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canAttack: 0
+  isPlayerBlocked: 0
   isAttacking: 0
   isResetting: 0
 --- !u!114 &1779105578
@@ -9256,6 +9299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inRange: 0
+  isPlayerBlocked: 0
   inAngle: 0
   enemyState: 0
   movementSetting: {fileID: 11400000, guid: 8246cf0614bd0ac48beea91596de5388, type: 2}

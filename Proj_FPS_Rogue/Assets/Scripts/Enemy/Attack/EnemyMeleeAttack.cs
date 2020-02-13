@@ -13,6 +13,7 @@ namespace Enemy
         
         public void Attack()
         {
+            //some check if player will get damage
             Debug.Log("Melee attack");
             //DamagePlayer
         }
