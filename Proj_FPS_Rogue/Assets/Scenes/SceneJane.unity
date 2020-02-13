@@ -366,9 +366,8 @@ GameObject:
   - component: {fileID: 18363478}
   - component: {fileID: 18363477}
   - component: {fileID: 18363476}
+  - component: {fileID: 18363482}
   - component: {fileID: 18363475}
-  - component: {fileID: 18363481}
-  - component: {fileID: 18363474}
   - component: {fileID: 18363473}
   m_Layer: 0
   m_Name: Dummy (28)
@@ -386,43 +385,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 18363472}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16d3e215f1e9e684c9d19543bbbb8d48, type: 3}
+  m_Script: {fileID: 11500000, guid: a4f47852943c44269e636fa975b5732e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 3573303896374179134, guid: e3362c30116f70644acabfee92083505,
-    type: 3}
-  muzzlePosition: {fileID: 1413493233}
+  canAttack: 0
   isAttacking: 0
-  inRange: 0
-  inAngle: 0
-  isReloading: 0
-  maxAngleDelta: 45
-  attackRange: 20
-  attackRate: 1
-  projectileSpeed: 20
-  attackDamage: 5
---- !u!195 &18363474
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 18363472}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 0
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  isResetting: 0
 --- !u!114 &18363475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,8 +403,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5be7c6d59344ce43bfe3f80b6b9a4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetStoppingDistance: 2
-  movementSpeed: 5
 --- !u!114 &18363476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -535,7 +501,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &18363481
+--- !u!114 &18363482
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -544,9 +510,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 18363472}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b07c90f4f69f4c75afc785ae44c179c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 40930841b7f4352458199c5297030e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inRange: 0
+  inAngle: 0
+  enemyState: 0
+  movementSetting: {fileID: 11400000, guid: 8246cf0614bd0ac48beea91596de5388, type: 2}
+  actionSetting: {fileID: 11400000, guid: c5c4c136027a9a247a6e1e936a0628e4, type: 2}
+  onEnemyStateUpdateEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &27257696
 GameObject:
   m_ObjectHideFlags: 0
@@ -1528,9 +1502,8 @@ GameObject:
   - component: {fileID: 216413963}
   - component: {fileID: 216413962}
   - component: {fileID: 216413961}
+  - component: {fileID: 216413967}
   - component: {fileID: 216413960}
-  - component: {fileID: 216413966}
-  - component: {fileID: 216413959}
   - component: {fileID: 216413958}
   m_Layer: 0
   m_Name: Dummy (27)
@@ -1548,43 +1521,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 216413957}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16d3e215f1e9e684c9d19543bbbb8d48, type: 3}
+  m_Script: {fileID: 11500000, guid: a4f47852943c44269e636fa975b5732e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 3573303896374179134, guid: e3362c30116f70644acabfee92083505,
-    type: 3}
-  muzzlePosition: {fileID: 1240765910}
+  canAttack: 0
   isAttacking: 0
-  inRange: 0
-  inAngle: 0
-  isReloading: 0
-  maxAngleDelta: 45
-  attackRange: 20
-  attackRate: 1
-  projectileSpeed: 20
-  attackDamage: 5
---- !u!195 &216413959
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216413957}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 0
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  isResetting: 0
 --- !u!114 &216413960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1597,8 +1539,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5be7c6d59344ce43bfe3f80b6b9a4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetStoppingDistance: 2
-  movementSpeed: 5
 --- !u!114 &216413961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1697,7 +1637,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &216413966
+--- !u!114 &216413967
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1706,9 +1646,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 216413957}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b07c90f4f69f4c75afc785ae44c179c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 40930841b7f4352458199c5297030e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inRange: 0
+  inAngle: 0
+  enemyState: 0
+  movementSetting: {fileID: 11400000, guid: 8246cf0614bd0ac48beea91596de5388, type: 2}
+  actionSetting: {fileID: 11400000, guid: c5c4c136027a9a247a6e1e936a0628e4, type: 2}
+  onEnemyStateUpdateEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &236043276
 GameObject:
   m_ObjectHideFlags: 0
@@ -2749,9 +2697,8 @@ GameObject:
   - component: {fileID: 564036079}
   - component: {fileID: 564036078}
   - component: {fileID: 564036077}
+  - component: {fileID: 564036083}
   - component: {fileID: 564036076}
-  - component: {fileID: 564036082}
-  - component: {fileID: 564036075}
   - component: {fileID: 564036074}
   m_Layer: 0
   m_Name: Dummy (26)
@@ -2769,43 +2716,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 564036073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16d3e215f1e9e684c9d19543bbbb8d48, type: 3}
+  m_Script: {fileID: 11500000, guid: a4f47852943c44269e636fa975b5732e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 3573303896374179134, guid: e3362c30116f70644acabfee92083505,
-    type: 3}
-  muzzlePosition: {fileID: 50312727}
+  canAttack: 0
   isAttacking: 0
-  inRange: 0
-  inAngle: 0
-  isReloading: 0
-  maxAngleDelta: 45
-  attackRange: 20
-  attackRate: 1
-  projectileSpeed: 20
-  attackDamage: 5
---- !u!195 &564036075
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 564036073}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 0
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  isResetting: 0
 --- !u!114 &564036076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2818,8 +2734,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5be7c6d59344ce43bfe3f80b6b9a4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetStoppingDistance: 2
-  movementSpeed: 5
 --- !u!114 &564036077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2918,7 +2832,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &564036082
+--- !u!114 &564036083
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2927,9 +2841,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 564036073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b07c90f4f69f4c75afc785ae44c179c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 40930841b7f4352458199c5297030e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inRange: 0
+  inAngle: 0
+  enemyState: 0
+  movementSetting: {fileID: 11400000, guid: 8246cf0614bd0ac48beea91596de5388, type: 2}
+  actionSetting: {fileID: 11400000, guid: c5c4c136027a9a247a6e1e936a0628e4, type: 2}
+  onEnemyStateUpdateEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &603999128
 GameObject:
   m_ObjectHideFlags: 0
@@ -3022,9 +2944,8 @@ GameObject:
   - component: {fileID: 628573244}
   - component: {fileID: 628573243}
   - component: {fileID: 628573242}
+  - component: {fileID: 628573248}
   - component: {fileID: 628573241}
-  - component: {fileID: 628573247}
-  - component: {fileID: 628573240}
   - component: {fileID: 628573239}
   m_Layer: 0
   m_Name: Dummy (25)
@@ -3042,43 +2963,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 628573238}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16d3e215f1e9e684c9d19543bbbb8d48, type: 3}
+  m_Script: {fileID: 11500000, guid: a4f47852943c44269e636fa975b5732e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 3573303896374179134, guid: e3362c30116f70644acabfee92083505,
-    type: 3}
-  muzzlePosition: {fileID: 1341919501}
+  canAttack: 0
   isAttacking: 0
-  inRange: 0
-  inAngle: 0
-  isReloading: 0
-  maxAngleDelta: 45
-  attackRange: 20
-  attackRate: 1
-  projectileSpeed: 20
-  attackDamage: 5
---- !u!195 &628573240
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 628573238}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 0
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  isResetting: 0
 --- !u!114 &628573241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3091,8 +2981,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5be7c6d59344ce43bfe3f80b6b9a4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetStoppingDistance: 2
-  movementSpeed: 5
 --- !u!114 &628573242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3191,7 +3079,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &628573247
+--- !u!114 &628573248
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3200,9 +3088,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 628573238}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b07c90f4f69f4c75afc785ae44c179c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 40930841b7f4352458199c5297030e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inRange: 0
+  inAngle: 0
+  enemyState: 0
+  movementSetting: {fileID: 11400000, guid: 8246cf0614bd0ac48beea91596de5388, type: 2}
+  actionSetting: {fileID: 11400000, guid: c5c4c136027a9a247a6e1e936a0628e4, type: 2}
+  onEnemyStateUpdateEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &653983973
 GameObject:
   m_ObjectHideFlags: 0
@@ -6115,9 +6011,8 @@ GameObject:
   - component: {fileID: 962728112}
   - component: {fileID: 962728111}
   - component: {fileID: 962728115}
+  - component: {fileID: 962728120}
   - component: {fileID: 962728117}
-  - component: {fileID: 962728119}
-  - component: {fileID: 962728116}
   - component: {fileID: 962728118}
   m_Layer: 0
   m_Name: Dummy
@@ -6224,28 +6119,6 @@ MonoBehaviour:
   dead: 0
   health: 0
   maxHealth: 100
---- !u!195 &962728116
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 962728110}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 0
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!114 &962728117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6258,8 +6131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5be7c6d59344ce43bfe3f80b6b9a4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetStoppingDistance: 2
-  movementSpeed: 5
 --- !u!114 &962728118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6269,22 +6140,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 962728110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16d3e215f1e9e684c9d19543bbbb8d48, type: 3}
+  m_Script: {fileID: 11500000, guid: a4f47852943c44269e636fa975b5732e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 3573303896374179134, guid: e3362c30116f70644acabfee92083505,
-    type: 3}
-  muzzlePosition: {fileID: 1254126240}
+  canAttack: 0
   isAttacking: 0
-  inRange: 0
-  inAngle: 0
-  isReloading: 0
-  maxAngleDelta: 45
-  attackRange: 20
-  attackRate: 1
-  projectileSpeed: 20
-  attackDamage: 5
---- !u!114 &962728119
+  isResetting: 0
+--- !u!114 &962728120
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6293,9 +6155,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 962728110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b07c90f4f69f4c75afc785ae44c179c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 40930841b7f4352458199c5297030e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inRange: 0
+  inAngle: 0
+  enemyState: 0
+  movementSetting: {fileID: 11400000, guid: 8246cf0614bd0ac48beea91596de5388, type: 2}
+  actionSetting: {fileID: 11400000, guid: c5c4c136027a9a247a6e1e936a0628e4, type: 2}
+  onEnemyStateUpdateEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &999382105
 GameObject:
   m_ObjectHideFlags: 0
@@ -6558,9 +6428,8 @@ GameObject:
   - component: {fileID: 1103658753}
   - component: {fileID: 1103658752}
   - component: {fileID: 1103658751}
+  - component: {fileID: 1103658757}
   - component: {fileID: 1103658750}
-  - component: {fileID: 1103658756}
-  - component: {fileID: 1103658749}
   - component: {fileID: 1103658748}
   m_Layer: 0
   m_Name: Dummy (29)
@@ -6578,43 +6447,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1103658747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16d3e215f1e9e684c9d19543bbbb8d48, type: 3}
+  m_Script: {fileID: 11500000, guid: a4f47852943c44269e636fa975b5732e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 3573303896374179134, guid: e3362c30116f70644acabfee92083505,
-    type: 3}
-  muzzlePosition: {fileID: 95957525}
+  canAttack: 0
   isAttacking: 0
-  inRange: 0
-  inAngle: 0
-  isReloading: 0
-  maxAngleDelta: 45
-  attackRange: 20
-  attackRate: 1
-  projectileSpeed: 20
-  attackDamage: 5
---- !u!195 &1103658749
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1103658747}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 0
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  isResetting: 0
 --- !u!114 &1103658750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6627,8 +6465,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5be7c6d59344ce43bfe3f80b6b9a4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetStoppingDistance: 2
-  movementSpeed: 5
 --- !u!114 &1103658751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6727,7 +6563,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1103658756
+--- !u!114 &1103658757
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6736,9 +6572,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1103658747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b07c90f4f69f4c75afc785ae44c179c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 40930841b7f4352458199c5297030e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inRange: 0
+  inAngle: 0
+  enemyState: 0
+  movementSetting: {fileID: 11400000, guid: 8246cf0614bd0ac48beea91596de5388, type: 2}
+  actionSetting: {fileID: 11400000, guid: c5c4c136027a9a247a6e1e936a0628e4, type: 2}
+  onEnemyStateUpdateEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1121299646
 GameObject:
   m_ObjectHideFlags: 0
@@ -9264,9 +9108,8 @@ GameObject:
   - component: {fileID: 1779105581}
   - component: {fileID: 1779105580}
   - component: {fileID: 1779105579}
+  - component: {fileID: 1779105585}
   - component: {fileID: 1779105578}
-  - component: {fileID: 1779105584}
-  - component: {fileID: 1779105577}
   - component: {fileID: 1779105576}
   m_Layer: 0
   m_Name: Dummy (24)
@@ -9284,43 +9127,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1779105575}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16d3e215f1e9e684c9d19543bbbb8d48, type: 3}
+  m_Script: {fileID: 11500000, guid: a4f47852943c44269e636fa975b5732e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 3573303896374179134, guid: e3362c30116f70644acabfee92083505,
-    type: 3}
-  muzzlePosition: {fileID: 1707213912}
+  canAttack: 0
   isAttacking: 0
-  inRange: 0
-  inAngle: 0
-  isReloading: 0
-  maxAngleDelta: 45
-  attackRange: 20
-  attackRate: 1
-  projectileSpeed: 20
-  attackDamage: 5
---- !u!195 &1779105577
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1779105575}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 0
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  isResetting: 0
 --- !u!114 &1779105578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9333,8 +9145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5be7c6d59344ce43bfe3f80b6b9a4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetStoppingDistance: 2
-  movementSpeed: 5
 --- !u!114 &1779105579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9433,7 +9243,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1779105584
+--- !u!114 &1779105585
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9442,9 +9252,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1779105575}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b07c90f4f69f4c75afc785ae44c179c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 40930841b7f4352458199c5297030e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inRange: 0
+  inAngle: 0
+  enemyState: 0
+  movementSetting: {fileID: 11400000, guid: 8246cf0614bd0ac48beea91596de5388, type: 2}
+  actionSetting: {fileID: 11400000, guid: c5c4c136027a9a247a6e1e936a0628e4, type: 2}
+  onEnemyStateUpdateEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1792567505
 GameObject:
   m_ObjectHideFlags: 0

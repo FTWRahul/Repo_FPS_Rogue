@@ -1,18 +1,24 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Enemy
 {
+    public enum MovementState
+    {
+        FOLLOWING,
+        DODGING,
+    }
+    
     public class EnemyMovementController : MonoBehaviour
     {
-        #region Movement settings
+        #region STATS
 
-        public float stoppingDistance;
-        public float movementSpeed;
-        
+        private MovementState _movementState;
+
         #endregion
         
-        #region References
+        #region REFERENCES
 
         private Transform _target; 
         private Vector3 TargetPosition => _target.position;
@@ -20,23 +26,43 @@ namespace Enemy
 
         #endregion
 
-
-        private void Start()
+        public void Init(Transform target,EnemyMovementSetting settings)
         {
-            _target = FindObjectOfType<CharacterData>().transform;
-            
-            _movementBehaviour = GetComponent<IMovementBehaviour>();
-            _movementBehaviour.Init(movementSpeed,stoppingDistance);
+            _target = target;
+            switch (settings.movementType)
+            {
+                case EnemyMovementType.GROUND:
+                    NavMeshAgent agent = gameObject.AddComponent<NavMeshAgent>();
+                    _movementBehaviour = new NavMeshMovement(agent, settings.movementSpeed, settings.stoppingDistance);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
-
+        
         private void Update()
         {
-            if (Vector3.Distance(transform.position, TargetPosition) > stoppingDistance)
+            if (_movementState == MovementState.FOLLOWING)
             {
                 _movementBehaviour.Move(TargetPosition);
             }
             
             FaceTarget();
+        }
+
+        public void UpdateState(EnemyState newState)
+        {
+            switch (newState)
+            {
+                case EnemyState.PURSUE:
+                    _movementState = MovementState.FOLLOWING;
+                    break;
+                case EnemyState.ATTACK:
+                    _movementState = MovementState.DODGING;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
+            }
         }
 
         private void FaceTarget()

@@ -27,6 +27,20 @@ public interface IBulletModifier
 //Interface for different types of movement for enemy
 public interface IMovementBehaviour
 {
-    void Init(float speed, float stop);
     void Move(Vector3 targetPosition);
+}
+
+public interface IAttackBehaviour
+{
+    void Attack();
+}
+
+public interface IDistanceAttackBehaviour
+{
+    Vector3 GetAttackDirection(Transform transform,Transform target, float projectileSpeed);
+}
+
+public interface IMeleeAttack
+{
+    
 }
