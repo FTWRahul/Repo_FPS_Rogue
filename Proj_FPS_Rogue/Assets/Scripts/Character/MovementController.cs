@@ -192,6 +192,7 @@ public class MovementController : MonoBehaviour
     {
         if(_characterController.isGrounded)
         {
+            isFalling = false;
             inAirTimer = 0f;
             finalMoveVector.y = -stickToGroundForce;
 
@@ -199,6 +200,7 @@ public class MovementController : MonoBehaviour
         }
         else
         {
+            isFalling = true;
             inAirTimer += Time.deltaTime;
             finalMoveVector += Physics.gravity * gravityMultiplier * Time.deltaTime;
         }
@@ -222,27 +224,17 @@ public class MovementController : MonoBehaviour
 
     void SetData()
     {
-        if (!HasInput)
+        if (isGrounded)
         {
-            _characterData.SetLocoState(CharacterData.LocoState.STAND);
+            _characterData.SetLocoState(HasInput ? CharacterData.LocoState.GROUND_MOVE : CharacterData.LocoState.STAND);
         }
-        else
+        if (isJumpClicked)
         {
-            if (isGrounded)
-            {
-                _characterData.SetLocoState(CharacterData.LocoState.GROUND_MOVE);
-            }
-            else
-            {
-                if (isJumpClicked)
-                {
-                    _characterData.SetLocoState(CharacterData.LocoState.JUMP);
-                }
-                else if (isFalling)
-                {
-                    _characterData.SetLocoState(CharacterData.LocoState.IN_AIR);
-                }
-            }
+            _characterData.SetLocoState(CharacterData.LocoState.JUMP);
+        }
+        else if (isFalling)
+        {
+            _characterData.SetLocoState(CharacterData.LocoState.IN_AIR);
         }
     }
 

@@ -8768,7 +8768,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-114228
+  m_Name: pb_Mesh17068
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10448,7 +10448,7 @@ MonoBehaviour:
   isFalling: 0
   isGrounded: 0
   walkSpeed: 9
-  runSpeed: 13
+  runSpeed: 20
   jumpSpeed: 10
   moveBackwardsSpeedPercent: 0.5
   moveSideSpeedPercent: 0.75
@@ -10569,7 +10569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPrimaryClicked: 0
-  isIntractPressed: 0
+  isInteractPressed: 0
 --- !u!114 &2140237112
 MonoBehaviour:
   m_ObjectHideFlags: 0
