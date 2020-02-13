@@ -38,7 +38,7 @@ namespace Enemy
 
         public void Attack()
         {
-            Debug.Log("ATTACK");
+            Debug.Log("Distance attack");
             /*Projectile go = Instantiate(_projectilePrefab, _muzzlePosition.position, Quaternion.identity).GetComponent<Projectile>();
             go.Initialize(_projectileSpeed, _shootingDirectionNormalized, _attackDamage);*/
         }

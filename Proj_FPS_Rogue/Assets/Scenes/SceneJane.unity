@@ -516,8 +516,8 @@ MonoBehaviour:
   inRange: 0
   inAngle: 0
   enemyState: 0
-  movementSetting: {fileID: 11400000, guid: 8246cf0614bd0ac48beea91596de5388, type: 2}
-  actionSetting: {fileID: 11400000, guid: c5c4c136027a9a247a6e1e936a0628e4, type: 2}
+  movementSetting: {fileID: 11400000, guid: ff39fecdd41ada04492d7eb7c3b1e4ec, type: 2}
+  actionSetting: {fileID: 11400000, guid: a229340cccdbf9e43a13044edc605050, type: 2}
   onEnemyStateUpdateEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -2847,8 +2847,8 @@ MonoBehaviour:
   inRange: 0
   inAngle: 0
   enemyState: 0
-  movementSetting: {fileID: 11400000, guid: 8246cf0614bd0ac48beea91596de5388, type: 2}
-  actionSetting: {fileID: 11400000, guid: c5c4c136027a9a247a6e1e936a0628e4, type: 2}
+  movementSetting: {fileID: 11400000, guid: ff39fecdd41ada04492d7eb7c3b1e4ec, type: 2}
+  actionSetting: {fileID: 11400000, guid: a229340cccdbf9e43a13044edc605050, type: 2}
   onEnemyStateUpdateEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -6161,8 +6161,8 @@ MonoBehaviour:
   inRange: 0
   inAngle: 0
   enemyState: 0
-  movementSetting: {fileID: 11400000, guid: 8246cf0614bd0ac48beea91596de5388, type: 2}
-  actionSetting: {fileID: 11400000, guid: c5c4c136027a9a247a6e1e936a0628e4, type: 2}
+  movementSetting: {fileID: 11400000, guid: ff39fecdd41ada04492d7eb7c3b1e4ec, type: 2}
+  actionSetting: {fileID: 11400000, guid: a229340cccdbf9e43a13044edc605050, type: 2}
   onEnemyStateUpdateEvent:
     m_PersistentCalls:
       m_Calls: []
