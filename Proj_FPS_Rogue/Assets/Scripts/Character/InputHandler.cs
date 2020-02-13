@@ -3,11 +3,12 @@ using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
+    public Vector2 mounseXY;
+    
     #region References
 
     private MovementController _movementController;
     private ActionController _actionController;
-    public Vector2 mounseXY;
 
     #endregion
 
@@ -15,7 +16,6 @@ public class InputHandler : MonoBehaviour
     {
         _movementController = GetComponent<MovementController>();
         _actionController = GetComponent<ActionController>();
-        
     }
 
     private void Update()
@@ -49,6 +49,6 @@ public class InputHandler : MonoBehaviour
 
     void GetInteractionInputData()
     {
-        _actionController.isIntractPressed = Input.GetKeyDown(KeyCode.E);
+        _actionController.isInteractPressed = Input.GetKeyDown(KeyCode.E);
     }
 }

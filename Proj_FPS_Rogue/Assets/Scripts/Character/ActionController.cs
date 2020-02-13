@@ -3,8 +3,7 @@ using UnityEngine;
 public class ActionController : MonoBehaviour
 {
     public bool isPrimaryClicked;
-
-    public bool isIntractPressed;
+    public bool isInteractPressed;
 
     private bool HasInput => isPrimaryClicked == true;
     
@@ -29,7 +28,7 @@ public class ActionController : MonoBehaviour
             _primaryGun.Shoot();
         }
 
-        if (isIntractPressed)
+        if (isInteractPressed)
         {
             _primaryGun.TryEquipingPart();
         }
@@ -37,7 +36,7 @@ public class ActionController : MonoBehaviour
         SetData();
     }
 
-    //why here?
+    //NOt working
     public void AddRecoil()
     {
         _playerCameraController.mouseInputVector.y += .2f;

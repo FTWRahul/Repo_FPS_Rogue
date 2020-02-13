@@ -168,7 +168,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78828783d14db7340a36e1f5a7ba1892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetEndMax: {x: 0.5, y: 1}
-  offsetSpeed: 0.2
-  scaleSpeed: 1.9
+  scaleMax: 0.3
+  scaleMin: 0.1
+  scaleEase: 32
+  xOffsetMax: 0.7
+  xOffsetMin: -0.7
+  yOffsetMax: 0.4
+  yOffsetMin: 0.7
+  moveEase: 5
   duration: 2
