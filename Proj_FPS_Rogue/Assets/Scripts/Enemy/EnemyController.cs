@@ -32,6 +32,7 @@ namespace Enemy
         #region STATS
 
         public bool inRange;
+        public bool isPlayerBlocked;
         public bool inAngle;
         public EnemyState enemyState;
 
@@ -79,11 +80,11 @@ namespace Enemy
             inRange = CheckDistance();
             inAngle = CheckAngle();
 
-            if (inRange && inAngle && enemyState != EnemyState.ATTACK)
+            if (inRange && inAngle && !isPlayerBlocked && enemyState != EnemyState.ATTACK)
             {
                 UpdateState(EnemyState.ATTACK);
             }
-            else if(!inRange || !inAngle && enemyState != EnemyState.PURSUE)
+            else if(!inRange || !inAngle || isPlayerBlocked && enemyState != EnemyState.PURSUE)
             {
                 UpdateState(EnemyState.PURSUE);
             }
@@ -103,6 +104,15 @@ namespace Enemy
         {
             enemyState = newState;
             onEnemyStateUpdateEvent?.Invoke(enemyState);
+        }
+
+        void CheckForBlocking()
+        {
+            Ray ray = new Ray(transform.position, _target.position);
+            if (Physics.Raycast(ray, out RaycastHit hit, actionSetting.maxAttackDistance))
+            {
+                isPlayerBlocked = hit.transform != _target;
+            }
         }
     }
 }

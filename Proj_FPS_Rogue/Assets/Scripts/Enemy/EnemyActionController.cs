@@ -10,6 +10,7 @@ namespace Enemy
         #region STATS
 
         public bool canAttack;
+        public bool isPlayerBlocked;
         public bool isAttacking;
         public bool isResetting;
 
@@ -78,5 +79,6 @@ namespace Enemy
         
             isResetting = false;
         }
+        
     }
 }

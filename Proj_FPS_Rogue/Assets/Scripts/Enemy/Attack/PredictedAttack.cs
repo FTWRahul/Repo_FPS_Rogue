@@ -19,5 +19,10 @@ namespace Enemy
             _predictedPosition = target.position + target.GetComponent<CharacterController>().velocity * _projectileTravelTime;
             return (_predictedPosition - transform.position).normalized;
         }
+
+        public Vector3 GetAttackDirection(Transform transform, Transform target)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

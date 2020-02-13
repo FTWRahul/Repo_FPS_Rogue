@@ -38,6 +38,7 @@ public interface IAttackBehaviour
 public interface IDistanceAttackBehaviour
 {
     Vector3 GetAttackDirection(Transform transform,Transform target, float projectileSpeed);
+    Vector3 GetAttackDirection(Transform transform,Transform target);
 }
 
 public interface IMeleeAttack
