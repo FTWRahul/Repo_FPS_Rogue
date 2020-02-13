@@ -45,3 +45,8 @@ public interface IMeleeAttack
 {
     
 }
+
+public interface IDropItem
+{
+    void Drop();
+}

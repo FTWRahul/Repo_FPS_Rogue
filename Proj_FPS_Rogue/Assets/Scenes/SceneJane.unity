@@ -425,6 +425,9 @@ MonoBehaviour:
   onDamage:
     m_PersistentCalls:
       m_Calls: []
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
   dead: 0
   health: 0
   maxHealth: 100
@@ -1566,6 +1569,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
     m_PersistentCalls:
       m_Calls: []
   dead: 0
@@ -2771,6 +2777,9 @@ MonoBehaviour:
   onDamage:
     m_PersistentCalls:
       m_Calls: []
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
   dead: 0
   health: 0
   maxHealth: 100
@@ -3023,6 +3032,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
     m_PersistentCalls:
       m_Calls: []
   dead: 0
@@ -6076,6 +6088,7 @@ GameObject:
   - component: {fileID: 962728120}
   - component: {fileID: 962728117}
   - component: {fileID: 962728118}
+  - component: {fileID: 962728116}
   m_Layer: 0
   m_Name: Dummy
   m_TagString: Untagged
@@ -6181,11 +6194,39 @@ MonoBehaviour:
   onDamage:
     m_PersistentCalls:
       m_Calls: []
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
   dead: 0
   health: 0
   maxHealth: 100
   lastDamage:
     isLethal: 0
+--- !u!114 &962728116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962728110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d064bdc00469b04fac5567b0252e159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootDropTable:
+    lootDropItems:
+    - item: {fileID: 0}
+      probabilityWeight: 0.5
+      probabilityPercent: 33.333332
+      probabilityRangeFrom: 0
+      probabilityRangeTo: 0.5
+    - item: {fileID: 0}
+      probabilityWeight: 1
+      probabilityPercent: 66.666664
+      probabilityRangeFrom: 0.5
+      probabilityRangeTo: 1.5
+  numItemsToDrop: 0
 --- !u!114 &962728117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6554,6 +6595,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
     m_PersistentCalls:
       m_Calls: []
   dead: 0
@@ -9246,6 +9290,9 @@ MonoBehaviour:
   onDamage:
     m_PersistentCalls:
       m_Calls: []
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
   dead: 0
   health: 0
   maxHealth: 100
@@ -10589,6 +10636,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
     m_PersistentCalls:
       m_Calls: []
   dead: 0

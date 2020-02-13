@@ -8,6 +8,7 @@ public class HealthState : MonoBehaviour, IReceiveDamage
     public Events.OnHealthChangeEvent onHealthChange;
     public Events.OnLastDamageChangedEvent onLastDamageChanged;
     public Events.OnDamageEvent onDamage;
+    public Events.OnDeathEvent onDeath;
 
     #endregion
 
@@ -60,6 +61,7 @@ public class HealthState : MonoBehaviour, IReceiveDamage
 
     private void Die()
     {
+        onDeath?.Invoke();
         Destroy(gameObject);
     }
 
