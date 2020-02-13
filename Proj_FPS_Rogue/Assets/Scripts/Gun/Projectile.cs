@@ -11,13 +11,17 @@ public class Projectile : MonoBehaviour
     private Vector3 _shootDir;
     private int _damage;
 
+    //For saving last damage into saver
+    private HealthState _sender;
+    
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
     }
 
-    public void Initialize(float force , Vector3 dir, int damage)
+    public void Initialize(HealthState sender,float force , Vector3 dir, int damage)
     {
+        _sender = sender;
         _force = force;
         _shootDir = dir;
         _damage = damage;
@@ -35,7 +39,8 @@ public class Projectile : MonoBehaviour
 
         if (other.collider.GetComponent<IReceiveDamage>() != null)
         {
-            other.collider.GetComponent<IReceiveDamage>().ApplyDamage(_damage);
+            //apply damage will return damage struct with damage data
+            _sender.SetLastDamage(other.collider.GetComponent<IReceiveDamage>().ApplyDamage(_damage)); 
         }
         Destroy(this.gameObject);
     }

@@ -24,13 +24,13 @@ public class CharacterData : MonoBehaviour
 
     public LocoState locoState;
     public Action action;
-    public Shoot lastShoot;
+    public Damage lastDamage;
     
     #endregion
 
     #region Events
 
-    public Events.OnLastDamageChangedEvent onLastDamageChanged;
+    
 
     #endregion
     public void SetAction(Action action)
@@ -43,24 +43,5 @@ public class CharacterData : MonoBehaviour
     {
         //GameDebug.Log("SetLocoState:" + locoState);
         this.locoState = locoState;
-    }
-
-    public void SetLastDamage(Shoot last)
-    {
-        lastShoot = last;
-        onLastDamageChanged?.Invoke();
-    }
-}
-
-[System.Serializable]
-public class Shoot
-{
-    public GameObject damageTo;
-    public bool isLethal;
-
-    public Shoot(GameObject obj, bool lethal)
-    {
-        damageTo = obj;
-        isLethal = lethal;
     }
 }

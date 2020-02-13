@@ -419,12 +419,17 @@ MonoBehaviour:
   onHealthChange:
     m_PersistentCalls:
       m_Calls: []
+  onLastDamageChanged:
+    m_PersistentCalls:
+      m_Calls: []
   onDamage:
     m_PersistentCalls:
       m_Calls: []
   dead: 0
   health: 0
   maxHealth: 100
+  lastDamage:
+    isLethal: 0
 --- !u!136 &18363477
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1557,12 +1562,17 @@ MonoBehaviour:
   onHealthChange:
     m_PersistentCalls:
       m_Calls: []
+  onLastDamageChanged:
+    m_PersistentCalls:
+      m_Calls: []
   onDamage:
     m_PersistentCalls:
       m_Calls: []
   dead: 0
   health: 0
   maxHealth: 100
+  lastDamage:
+    isLethal: 0
 --- !u!136 &216413962
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1952,6 +1962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d981e68794ec2f049a61ea5fa59b2285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToHide: 5
   floatingDamage: {fileID: 4863038698852865461, guid: 484608891cad0cd4086992fac74ab0df,
     type: 3}
 --- !u!114 &271672528
@@ -2754,12 +2765,17 @@ MonoBehaviour:
   onHealthChange:
     m_PersistentCalls:
       m_Calls: []
+  onLastDamageChanged:
+    m_PersistentCalls:
+      m_Calls: []
   onDamage:
     m_PersistentCalls:
       m_Calls: []
   dead: 0
   health: 0
   maxHealth: 100
+  lastDamage:
+    isLethal: 0
 --- !u!136 &564036078
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3003,12 +3019,17 @@ MonoBehaviour:
   onHealthChange:
     m_PersistentCalls:
       m_Calls: []
+  onLastDamageChanged:
+    m_PersistentCalls:
+      m_Calls: []
   onDamage:
     m_PersistentCalls:
       m_Calls: []
   dead: 0
   health: 0
   maxHealth: 100
+  lastDamage:
+    isLethal: 0
 --- !u!136 &628573243
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5387,6 +5408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d981e68794ec2f049a61ea5fa59b2285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToHide: 5
   floatingDamage: {fileID: 4863038698852865461, guid: 484608891cad0cd4086992fac74ab0df,
     type: 3}
 --- !u!114 &801639101
@@ -5830,6 +5852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d981e68794ec2f049a61ea5fa59b2285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToHide: 5
   floatingDamage: {fileID: 4863038698852865461, guid: 484608891cad0cd4086992fac74ab0df,
     type: 3}
 --- !u!114 &926202077
@@ -6004,6 +6027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d981e68794ec2f049a61ea5fa59b2285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToHide: 5
   floatingDamage: {fileID: 4863038698852865461, guid: 484608891cad0cd4086992fac74ab0df,
     type: 3}
 --- !u!1 &949032492
@@ -6151,12 +6175,17 @@ MonoBehaviour:
   onHealthChange:
     m_PersistentCalls:
       m_Calls: []
+  onLastDamageChanged:
+    m_PersistentCalls:
+      m_Calls: []
   onDamage:
     m_PersistentCalls:
       m_Calls: []
   dead: 0
   health: 0
   maxHealth: 100
+  lastDamage:
+    isLethal: 0
 --- !u!114 &962728117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6521,12 +6550,17 @@ MonoBehaviour:
   onHealthChange:
     m_PersistentCalls:
       m_Calls: []
+  onLastDamageChanged:
+    m_PersistentCalls:
+      m_Calls: []
   onDamage:
     m_PersistentCalls:
       m_Calls: []
   dead: 0
   health: 0
   maxHealth: 100
+  lastDamage:
+    isLethal: 0
 --- !u!136 &1103658752
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6677,6 +6711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d981e68794ec2f049a61ea5fa59b2285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToHide: 5
   floatingDamage: {fileID: 4863038698852865461, guid: 484608891cad0cd4086992fac74ab0df,
     type: 3}
 --- !u!114 &1121299649
@@ -7560,6 +7595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d981e68794ec2f049a61ea5fa59b2285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToHide: 5
   floatingDamage: {fileID: 4863038698852865461, guid: 484608891cad0cd4086992fac74ab0df,
     type: 3}
 --- !u!114 &1415185998
@@ -8941,6 +8977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d981e68794ec2f049a61ea5fa59b2285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToHide: 5
   floatingDamage: {fileID: 4863038698852865461, guid: 484608891cad0cd4086992fac74ab0df,
     type: 3}
 --- !u!114 &1702750892
@@ -9203,12 +9240,17 @@ MonoBehaviour:
   onHealthChange:
     m_PersistentCalls:
       m_Calls: []
+  onLastDamageChanged:
+    m_PersistentCalls:
+      m_Calls: []
   onDamage:
     m_PersistentCalls:
       m_Calls: []
   dead: 0
   health: 0
   maxHealth: 100
+  lastDamage:
+    isLethal: 0
 --- !u!136 &1779105580
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10384,12 +10426,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   locoState: 0
   action: 0
-  lastShoot:
-    damageTo: {fileID: 0}
+  lastDamage:
     isLethal: 0
-  onLastDamageChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &2140237106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10547,12 +10585,17 @@ MonoBehaviour:
   onHealthChange:
     m_PersistentCalls:
       m_Calls: []
+  onLastDamageChanged:
+    m_PersistentCalls:
+      m_Calls: []
   onDamage:
     m_PersistentCalls:
       m_Calls: []
   dead: 0
   health: 0
   maxHealth: 100
+  lastDamage:
+    isLethal: 0
 --- !u!1001 &6823697679210574202
 PrefabInstance:
   m_ObjectHideFlags: 0

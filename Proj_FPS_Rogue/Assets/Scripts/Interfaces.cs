@@ -7,7 +7,7 @@ public interface IShootBehaviour
 
 public interface IReceiveDamage
 {
-    void ApplyDamage(int damage);
+    Damage ApplyDamage(int damage);
 }
 
 

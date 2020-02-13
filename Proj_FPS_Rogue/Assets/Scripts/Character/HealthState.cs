@@ -3,19 +3,27 @@ using UnityEngine;
 
 public class HealthState : MonoBehaviour, IReceiveDamage
 {
+    #region EVENTS
+
     public Events.OnHealthChangeEvent onHealthChange;
+    public Events.OnLastDamageChangedEvent onLastDamageChanged;
     public Events.OnDamageEvent onDamage;
-    
+
+    #endregion
+
+    #region STATS
+
     public bool dead;
     public int health;
     public int maxHealth;
+    public Damage lastDamage;
 
-    private CharacterData _characterData;
-
+    #endregion
+   
+    
     private void Start()
     {
         SetMaxHealth();
-        _characterData = FindObjectOfType<CharacterData>();
     }
 
     private void Update()
@@ -31,21 +39,23 @@ public class HealthState : MonoBehaviour, IReceiveDamage
         health = maxHealth;
     }
     
-    public void ApplyDamage(int damage)
+    public Damage ApplyDamage(int damage)
     {
-        if (health <= 0)
-            return;
-
         health -= damage;
         
-        onHealthChange?.Invoke(health);
-        onDamage?.Invoke(damage);
+        onDamage?.Invoke(health,damage);
         
         if (health <= 0)
         {
             dead = true;
         }
-        _characterData.SetLastDamage(new Shoot(this.gameObject, dead));
+        return new Damage(dead);
+    }
+
+    public void SetLastDamage(Damage damage)
+    {
+        lastDamage = damage;
+        onLastDamageChanged?.Invoke(lastDamage);
     }
 
     private void Die()
