@@ -12,9 +12,14 @@ namespace Enemy
         private Vector3 _shootingDirectionNormalized;
         
         private IDistanceAttackBehaviour _distanceAttackBehaviour;
-
-        public EnemyDistanceAttack(EnemyActionSetting settings)
+        
+        //shouldn't be here - temporary
+        private HealthState _healthState;
+        private Transform _target;
+        public EnemyDistanceAttack(EnemyActionSetting settings, HealthState healthState, Transform target)
         {
+            _target = target;
+            _healthState = healthState;
             _projectilePrefab = settings.projectilePrefab;
             _muzzlePosition = settings.muzzlePosition;
             _projectileSpeed = settings.projectileSpeed;
@@ -38,7 +43,8 @@ namespace Enemy
 
         public void Attack()
         {
-            Debug.Log("Distance attack");
+            _shootingDirectionNormalized = _distanceAttackBehaviour.GetAttackDirection(_healthState.transform, _target, _projectileSpeed);
+            ProjectileLauncher.Instance.LaunchProjectile(_healthState, _projectilePrefab, _muzzlePosition, _shootingDirectionNormalized, _projectileSpeed, _attackDamage);
             /*Projectile go = Instantiate(_projectilePrefab, _muzzlePosition.position, Quaternion.identity).GetComponent<Projectile>();
             go.Initialize(_projectileSpeed, _shootingDirectionNormalized, _attackDamage);*/
         }

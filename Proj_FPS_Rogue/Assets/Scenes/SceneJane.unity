@@ -375,7 +375,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &18363473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2727,7 +2727,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &564036074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6051,8 +6051,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 949032493}
+  - component: {fileID: 949032494}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: PrjectileLaucnher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6072,6 +6073,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &949032494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949032492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 429b39754d464c6409db34299caf08a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &962728110
 GameObject:
   m_ObjectHideFlags: 0
@@ -6095,7 +6108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &962728111
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10445,13 +10458,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2140237108}
-  - component: {fileID: 2140237109}
-  - component: {fileID: 2140237107}
-  - component: {fileID: 2140237106}
   - component: {fileID: 2140237105}
-  - component: {fileID: 2140237110}
-  - component: {fileID: 2140237111}
   - component: {fileID: 2140237112}
+  - component: {fileID: 2140237109}
+  - component: {fileID: 2140237106}
+  - component: {fileID: 2140237107}
+  - component: {fileID: 2140237111}
+  - component: {fileID: 2140237110}
   m_Layer: 0
   m_Name: FP
   m_TagString: Untagged

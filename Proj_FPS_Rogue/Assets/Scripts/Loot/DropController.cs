@@ -10,7 +10,8 @@ namespace Loot
 	
         // How many items treasure will spawn
         public int numItemsToDrop;
-
+        
+        // Shouldn't be here
         private HealthState _healthState;
 
         private void Start()

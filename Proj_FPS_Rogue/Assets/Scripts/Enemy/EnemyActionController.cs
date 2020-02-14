@@ -28,14 +28,15 @@ namespace Enemy
         
         #endregion
         
-        public void Init(EnemyActionSetting settings)
+        public void Init(EnemyActionSetting settings, Transform target)
         {
             _attackRate = settings.attackRate;
 
             switch (settings.enemyActionType)
             {
                 case EnemyActionType.DISTANCE:
-                    _attackBehaviour = new EnemyDistanceAttack(settings);
+                    settings.muzzlePosition = transform.Find("Muzzle");
+                    _attackBehaviour = new EnemyDistanceAttack(settings, GetComponent<HealthState>(), target);
                     break;
                 case EnemyActionType.MELEE:
                     _attackBehaviour = new EnemyMeleeAttack(settings);

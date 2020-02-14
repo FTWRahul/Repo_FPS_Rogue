@@ -30,6 +30,7 @@ public class Projectile : MonoBehaviour
 
     void Launch()
     {
+        Debug.Log("Launching" + _shootDir + _force);
         _rb.AddForce(_shootDir * _force, ForceMode.Impulse);
     }
 
@@ -37,6 +38,7 @@ public class Projectile : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
 
+        Debug.Log("Collision");
         if (other.collider.GetComponent<IReceiveDamage>() != null)
         {
             //apply damage will return damage struct with damage data
