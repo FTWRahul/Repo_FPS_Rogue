@@ -25,10 +25,15 @@ public class Gun : MonoBehaviour
 
     public GameObject projectilePrefab;
     public Transform muzzleTransform;
-    public float reloadTime;
+    public float reloadSpeed;
     public float rateOfFire;
     public float projectileForce;
     public int damage;
+    public int magSize;
+
+    private bool _isReloading;
+    
+    private int _shotCount;
 
     private float _timeBetweenLastShot;
 
@@ -49,6 +54,7 @@ public class Gun : MonoBehaviour
     public void UpdateDictionaryValue(PartSlot slot ,IGunPart part)
     {
         parts[slot] = part;
+        part.UpdateGun();
     }
 
     private void InitializeDictionary()
@@ -71,12 +77,38 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
-        if (_timeBetweenLastShot > rateOfFire)
+        if (_timeBetweenLastShot > rateOfFire && !_isReloading)
         {
             shootEvent.Invoke();
             _shootBehaviour.Fire();
 
             _timeBetweenLastShot = 0;
+
+            _shotCount++;
+
+            if (_shotCount >= magSize)
+            {
+                StartCoroutine(ReloadGun());
+            }
         }
     }
+
+    IEnumerator ReloadGun()
+    {
+        _isReloading = true;
+        float i = 0;
+        Debug.Log("Reload Started");
+        while (i < reloadSpeed)
+        {
+            i += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+            Debug.Log("Reloading");
+        }
+
+        _shotCount = 0;
+        _isReloading = false;
+        Debug.Log("Reload Ended");
+
+    }
+    
 }

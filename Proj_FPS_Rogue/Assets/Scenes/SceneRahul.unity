@@ -892,10 +892,10 @@ GameObject:
   - component: {fileID: 354621629}
   - component: {fileID: 354621628}
   - component: {fileID: 354621627}
-  - component: {fileID: 354621630}
   - component: {fileID: 354621626}
+  - component: {fileID: 354621630}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: BiggerMag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -984,10 +984,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 354621625}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5534b9c1c30643a0880cab03744e6f9e, type: 3}
+  m_Script: {fileID: 11500000, guid: d9b5e4f33899310409588a37b53ba72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partSO: {fileID: 11400000, guid: 5b937e1551824e248a03465a7a791157, type: 2}
+  partSO: {fileID: 11400000, guid: 1fcaa533fb5c2944180f4f5cdab348df, type: 2}
+  size: 10
 --- !u!1 &389554030
 GameObject:
   m_ObjectHideFlags: 0
@@ -4204,6 +4205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d981e68794ec2f049a61ea5fa59b2285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToHide: 0
   floatingDamage: {fileID: 4863038698852865461, guid: 484608891cad0cd4086992fac74ab0df,
     type: 3}
 --- !u!114 &1214559207
@@ -4976,7 +4978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPrimaryClicked: 0
-  isIntractPressed: 0
+  isInteractPressed: 0
 --- !u!4 &1445032947
 Transform:
   m_ObjectHideFlags: 0
@@ -5008,12 +5010,20 @@ MonoBehaviour:
   onHealthChange:
     m_PersistentCalls:
       m_Calls: []
+  onLastDamageChanged:
+    m_PersistentCalls:
+      m_Calls: []
   onDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
     m_PersistentCalls:
       m_Calls: []
   dead: 0
   health: 0
   maxHealth: 100
+  lastDamage:
+    isLethal: 0
 --- !u!114 &1445032949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5040,12 +5050,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   locoState: 0
   action: 0
-  lastShoot:
-    damageTo: {fileID: 0}
+  lastDamage:
     isLethal: 0
-  onLastDamageChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1445032951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5483,10 +5489,11 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3573303896374179134, guid: e3362c30116f70644acabfee92083505,
     type: 3}
   muzzleTransform: {fileID: 241873852}
-  reloadTime: 0
+  reloadSpeed: 2
   rateOfFire: 0.1
   projectileForce: 30
   damage: 10
+  magSize: 10
   bulletModifiers: []
   partSlot:
   - {fileID: 423830126}
@@ -5605,12 +5612,20 @@ MonoBehaviour:
   onHealthChange:
     m_PersistentCalls:
       m_Calls: []
+  onLastDamageChanged:
+    m_PersistentCalls:
+      m_Calls: []
   onDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
     m_PersistentCalls:
       m_Calls: []
   dead: 0
   health: 0
   maxHealth: 100
+  lastDamage:
+    isLethal: 0
 --- !u!136 &1766400259
 CapsuleCollider:
   m_ObjectHideFlags: 0

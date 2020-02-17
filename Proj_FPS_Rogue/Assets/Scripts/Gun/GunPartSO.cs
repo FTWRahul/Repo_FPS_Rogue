@@ -10,5 +10,4 @@ public class GunPartSO : ScriptableObject
     public string partDescription;
     public Sprite partIcon;
     public GameObject partPrefab;
-    public GunPart partScript;
 }

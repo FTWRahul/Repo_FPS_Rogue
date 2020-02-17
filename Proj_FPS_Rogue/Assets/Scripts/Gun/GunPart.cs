@@ -5,18 +5,18 @@ public class GunPart : MonoBehaviour, IGunPart
 {
     public GunPartSO partSO;
     
-    private Gun _gun;
+    protected Gun gun;
 
     public void Initialize(GunPartSO so)
     {
         partSO = so;
     }
     
-    public virtual void TryPickUp(Gun gun)
+    public virtual void TryPickUp(Gun inGun)
     {
-        _gun = gun;
+        this.gun = inGun;
 
-        foreach (var slot in _gun.parts)
+        foreach (var slot in this.gun.parts)
         {
             if (slot.Key.partEnum == partSO.partEnum)
             {
@@ -27,9 +27,10 @@ public class GunPart : MonoBehaviour, IGunPart
                     transform.localRotation = Quaternion.Euler(Vector3.zero);
 
                     GetComponent<Collider>().enabled = false;
-                    _gun.UpdateDictionaryValue(slot.Key, this);
-                    _gun.PartToPickUp = null;
+                    this.gun.UpdateDictionaryValue(slot.Key, this);
+                    this.gun.PartToPickUp = null;
                     //Add Part
+                    //UpdateGun();
                     break;
                 }
             }
@@ -38,7 +39,7 @@ public class GunPart : MonoBehaviour, IGunPart
 
     public virtual void UpdateGun()
     {
-        // Gun Update Logic
+        Debug.Log("Base call: Gun being Updated by child");
     }
 
     public GunPartEnum Part()

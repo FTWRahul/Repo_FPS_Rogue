@@ -13,7 +13,7 @@ public interface IReceiveDamage
 
 public interface IGunPart
 {
-    void TryPickUp(Gun gun);
+    void TryPickUp(Gun inGun);
 
     void UpdateGun();
     GunPartEnum Part();
