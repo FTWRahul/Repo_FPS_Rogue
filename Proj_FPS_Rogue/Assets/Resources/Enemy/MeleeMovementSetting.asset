@@ -13,5 +13,28 @@ MonoBehaviour:
   m_Name: MeleeMovementSetting
   m_EditorClassIdentifier: 
   movementType: 0
+  speed: 1e-45
   stoppingDistance: 1
-  movementSpeed: 5
+  xMin: 0
+  xMax: 0
+  yMin: 0
+  yMax: 0
+  zMin: 0
+  zMax: 0
+  selectedPFAlg: 0
+  pathfindingLevel: 0
+  inEditorPathfindingTraverce: 0
+  heuristicFactor: 0.9
+  trajectoryOptimization: 0
+  trajectorySmoothing: 0
+  moveVectorOrientation: 0
+  turnSpeed: 0
+  reckDynamicObstacles: 0
+  lesion: 0
+  updateOffset: 0
+  generateEventMessages: 0
+  generateCondMessages: 0
+  showPathfindingZone: 0
+  tracePath: 0
+  lineWidth: 0
+  lineMaterial: {fileID: 0}

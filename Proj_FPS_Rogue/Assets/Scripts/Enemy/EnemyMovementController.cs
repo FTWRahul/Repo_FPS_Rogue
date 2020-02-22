@@ -7,7 +7,8 @@ namespace Enemy
     public enum MovementState
     {
         FOLLOWING,
-        DODGING,
+        ACTING,
+        DODGING
     }
     
     public class EnemyMovementController : MonoBehaviour
@@ -33,7 +34,18 @@ namespace Enemy
             {
                 case EnemyMovementType.GROUND:
                     NavMeshAgent agent = gameObject.AddComponent<NavMeshAgent>();
-                    _movementBehaviour = new NavMeshMovement(agent, settings.movementSpeed, settings.stoppingDistance);
+                    _movementBehaviour = new NavMeshMovement(agent, settings.speed, settings.stoppingDistance);
+                    break;
+                case EnemyMovementType.FLYING:
+                    Pursuer pursuer = gameObject.AddComponent<Pursuer>();
+                    pursuer.SetConstraints(settings.xMin, settings.xMax, settings.yMin, settings.yMax, settings.zMin,
+                        settings.zMax);
+                    pursuer.SetPathfindingParameters(settings.selectedPFAlg, settings.pathfindingLevel,
+                        settings.inEditorPathfindingTraverce, settings.heuristicFactor, settings.trajectoryOptimization,
+                        settings.trajectorySmoothing);
+                    pursuer.SetMovementSettings(settings.speed, settings.moveVectorOrientation, settings.turnSpeed);
+                    
+                    _movementBehaviour = new FlyingMovement(pursuer, settings.lesion, settings.updateOffset);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -58,6 +70,9 @@ namespace Enemy
                     _movementState = MovementState.FOLLOWING;
                     break;
                 case EnemyState.ATTACK:
+                    _movementState = MovementState.ACTING;
+                    break;
+                case EnemyState.DODGE:
                     _movementState = MovementState.DODGING;
                     break;
                 default:

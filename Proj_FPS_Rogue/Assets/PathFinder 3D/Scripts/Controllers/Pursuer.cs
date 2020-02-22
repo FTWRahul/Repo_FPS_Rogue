@@ -17,7 +17,6 @@ public class Pursuer : MonoBehaviour
     public float yMin;
     public float yMax;
     public float zMin;
-
     public float zMax;
 
     //Pathfinding settings
@@ -25,7 +24,6 @@ public class Pursuer : MonoBehaviour
     public int pathfindingLevel;
     public bool inEditorPathfindingTraverce;
     public float heuristicFactor = 0.9f;
-
     public bool trajectoryOptimization, trajectorySmoothing;
 
     //Movement settings
@@ -332,6 +330,25 @@ public class Pursuer : MonoBehaviour
         this.yMax = yMax;
         this.zMin = zMin;
         this.zMax = zMax;
+        return true;
+    }
+
+    public bool SetPathfindingParameters(PathfindingAlgorithm _selectedPFAlg, int _pathfindingLevel, bool _inEditorPathfindingTraverce, float _heuristicFactor, bool _trajectoryOptimization, bool _trajectorySmoothing)
+    {
+        selectedPFAlg = _selectedPFAlg;
+        pathfindingLevel = _pathfindingLevel;
+        inEditorPathfindingTraverce = inEditorPathfindingTraverce; 
+        heuristicFactor = _heuristicFactor;
+        trajectoryOptimization = _trajectoryOptimization; 
+        trajectorySmoothing = _trajectorySmoothing;
+        return true;
+    }
+
+    public bool SetMovementSettings(float _speed, bool _moveVectorOrientation, float _turnSpeed)
+    {
+        speed = _speed;
+        moveVectorOrientation = _moveVectorOrientation;
+        _turnSpeed = _turnSpeed;
         return true;
     }
 

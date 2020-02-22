@@ -6,12 +6,14 @@ namespace Enemy
     public enum EnemyState
     {
         PURSUE,
-        ATTACK
+        ATTACK,
+        DODGE
     }
 
     public enum EnemyMovementType
     {
-        GROUND
+        GROUND, 
+        FLYING
     }
 
     public enum EnemyActionType
@@ -34,6 +36,7 @@ namespace Enemy
         public bool inRange;
         public bool isPlayerBlocked;
         public bool inAngle;
+        
         public EnemyState enemyState;
 
         #endregion
@@ -68,7 +71,6 @@ namespace Enemy
             /*_enemyActionController = GetComponent<EnemyActionController>();
             _enemyActionController.Init(actionSetting, _target);
             onEnemyStateUpdateEvent.AddListener(_enemyActionController.UpdateActionState);*/
-            
             
             _enemyMovementController = GetComponent<EnemyMovementController>();
             _enemyMovementController.Init(_target,movementSetting);

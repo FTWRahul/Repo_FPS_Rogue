@@ -33,7 +33,6 @@ public class PursuerEditor : Editor
 
     private void OnEnable()
     {
-
         _xMin = serializedObject.FindProperty("xMin");
         _yMin = serializedObject.FindProperty("yMin");
         _zMin = serializedObject.FindProperty("zMin");

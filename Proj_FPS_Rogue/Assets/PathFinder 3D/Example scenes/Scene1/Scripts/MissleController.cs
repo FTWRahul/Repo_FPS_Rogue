@@ -34,7 +34,6 @@ public class MissleController : MonoBehaviour
     }
     private void Update()
     {
-      
         //if the target for some reason was destroyed, destroy missle
         if (target == null) { Destroy(gameObject); return; }
 
