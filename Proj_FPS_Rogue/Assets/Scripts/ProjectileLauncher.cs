@@ -24,6 +24,6 @@ public class ProjectileLauncher : MonoBehaviour
     {
         Debug.Log("BOOP" + speed);
         Projectile go = Instantiate(prefab, from.position, from.rotation).GetComponent<Projectile>();
-        go.Initialize(sender, speed, to, damage);
+        go.Initialize(sender, speed, to, damage, new List<IBulletModifier>()); // PLEASE REMOVE THIS LIST
     }
 }

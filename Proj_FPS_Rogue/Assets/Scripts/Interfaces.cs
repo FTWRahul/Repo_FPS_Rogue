@@ -2,6 +2,7 @@
 
 public interface IShootBehaviour
 {
+    void Init();
     void Fire();
 }
 
@@ -16,12 +17,14 @@ public interface IGunPart
     void TryPickUp(Gun inGun);
 
     void UpdateGun();
-    GunPartEnum Part();
+
+    void RemovePart();
+    Transform GetTransform();
 }
 
 public interface IBulletModifier
 {
-    
+    void OnAttach(GameObject behaviour);
 }
 
 //Interface for different types of movement for enemy

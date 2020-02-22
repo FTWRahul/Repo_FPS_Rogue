@@ -20,19 +20,23 @@ public class GunPart : MonoBehaviour, IGunPart
         {
             if (slot.Key.partEnum == partSO.partEnum)
             {
-                if (slot.Value == null)
+                if (slot.Value != null)
                 {
-                    transform.parent = slot.Key.transform;
-                    transform.localPosition = Vector3.zero;
-                    transform.localRotation = Quaternion.Euler(Vector3.zero);
-
-                    GetComponent<Collider>().enabled = false;
-                    this.gun.UpdateDictionaryValue(slot.Key, this);
-                    this.gun.PartToPickUp = null;
-                    //Add Part
-                    //UpdateGun();
-                    break;
+                    slot.Value.GetTransform().parent = null;
+                    slot.Value.GetTransform().position = transform.localPosition;
+                    slot.Value.GetTransform().GetComponent<Collider>().enabled = true;
+                    slot.Value.RemovePart();
                 }
+                transform.parent = slot.Key.transform;
+                transform.localPosition = Vector3.zero;
+                transform.localRotation = Quaternion.Euler(Vector3.zero);
+
+                GetComponent<Collider>().enabled = false;
+                this.gun.UpdateDictionaryValue(slot.Key, this);
+                this.gun.PartToPickUp = null;
+                //Add Part
+                //UpdateGun();
+                break;
             }
         }
     }
@@ -42,9 +46,14 @@ public class GunPart : MonoBehaviour, IGunPart
         Debug.Log("Base call: Gun being Updated by child");
     }
 
-    public GunPartEnum Part()
+    public virtual void RemovePart()
     {
-        return partSO.partEnum;
+        Debug.Log("Part Removed");
+    }
+
+    public Transform GetTransform()
+    {
+        return this.transform;
     }
     
     private void OnTriggerStay(Collider other)

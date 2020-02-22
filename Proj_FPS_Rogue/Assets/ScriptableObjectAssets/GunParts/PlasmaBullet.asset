@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b594204d02fb194dac401ee8183bc70, type: 3}
-  m_Name: BiggerMag
+  m_Name: PlasmaBullet
   m_EditorClassIdentifier: 
   partEnum: 0
-  partName: Bigger Mag
-  partDescription: Makes your mag BIG
+  partName: PlasmaBullet
+  partDescription: zap zap zap
   partIcon: {fileID: 0}
   partPrefab: {fileID: 0}
