@@ -1,16 +1,25 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 public class ActionController : MonoBehaviour
 {
-    public bool isPrimaryClicked;
-    public bool isInteractPressed;
+    #region DEBUG
 
-    private bool HasInput => isPrimaryClicked == true;
+    [BoxGroup("DEBUG")][ReadOnly] public bool isPrimaryClicked;
+    [BoxGroup("DEBUG")][ReadOnly] public bool isInteractPressed;
+
+    #endregion
     
+    private bool HasInput => isPrimaryClicked == true;
+
+    #region REFERENCES
+
     private Gun _primaryGun;
     private PlayerCameraController _playerCameraController;
     private CharacterData _characterData;
-    
+
+    #endregion
+
     private void Start()
     {
         _primaryGun = GetComponentInChildren<Gun>();

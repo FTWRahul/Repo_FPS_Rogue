@@ -1,18 +1,12 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
 public class MovementController : MonoBehaviour
 {
-    public Vector2 inputVector;
+    
     bool HasInput => inputVector != Vector2.zero;
-
-    public bool isRunClicked;
-    public bool isRunReleased;
-    public bool isRunning;
-    public bool isJumpClicked;
-    public bool isFalling;
-    public bool isGrounded;
-
+    
     #region Locomotion
     [SerializeField] private float walkSpeed = 2f;
     [SerializeField] private float runSpeed = 3f;
@@ -50,23 +44,33 @@ public class MovementController : MonoBehaviour
     #endregion
 
     #region DEBUG
-    [SerializeField] private Vector2 smoothInputVector;
+    
+    [BoxGroup("DEBUG")][ReadOnly] public Vector2 inputVector;
+    [BoxGroup("DEBUG")][ReadOnly] public bool isRunClicked;
+    [BoxGroup("DEBUG")][ReadOnly] public bool isRunReleased;
+    [BoxGroup("DEBUG")][ReadOnly] public bool isRunning;
+    [BoxGroup("DEBUG")][ReadOnly] public bool isJumpClicked;
+    [BoxGroup("DEBUG")][ReadOnly] public bool isFalling;
+    [BoxGroup("DEBUG")][ReadOnly] public bool isGrounded;
     
     [Space]
-    [SerializeField] private Vector3 finalMoveDir;
-    [SerializeField] private Vector3 smoothFinalMoveDir;
-    [SerializeField] private bool previouslyGrounded;
+    [BoxGroup("DEBUG")][SerializeField][ReadOnly] private Vector2 smoothInputVector;
+    
+    [Space]
+    [BoxGroup("DEBUG")][SerializeField][ReadOnly] private Vector3 finalMoveDir;
+    [BoxGroup("DEBUG")][SerializeField][ReadOnly] private Vector3 smoothFinalMoveDir;
+    [BoxGroup("DEBUG")][SerializeField][ReadOnly] private bool previouslyGrounded;
     [Space] 
-    [SerializeField] private Vector3 finalMoveVector;
+    [BoxGroup("DEBUG")][SerializeField][ReadOnly] private Vector3 finalMoveVector;
     
     [Space]
-    [SerializeField] private float currentSpeed;
-    [SerializeField] private float smoothCurrentSpeed;
-    [SerializeField] private float finalSmoothCurrentSpeed;
-    [SerializeField] private float walkRunSpeedDifference;
+    [BoxGroup("DEBUG")][SerializeField][ReadOnly] private float currentSpeed;
+    [BoxGroup("DEBUG")][SerializeField][ReadOnly] private float smoothCurrentSpeed;
+    [BoxGroup("DEBUG")][SerializeField][ReadOnly] private float finalSmoothCurrentSpeed;
+    [BoxGroup("DEBUG")][SerializeField][ReadOnly] private float walkRunSpeedDifference;
     
     [Space]
-    [SerializeField] private float inAirTimer;
+    [BoxGroup("DEBUG")][SerializeField][ReadOnly] private float inAirTimer;
     #endregion
     
     private void Start()

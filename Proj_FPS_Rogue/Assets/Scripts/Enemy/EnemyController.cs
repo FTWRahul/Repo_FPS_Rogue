@@ -1,4 +1,5 @@
 ﻿using System;
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace Enemy
@@ -31,17 +32,15 @@ namespace Enemy
     
     public class EnemyController : MonoBehaviour
     {
-        #region STATS
+        #region DEBUG
 
-        public bool inRange;
-        public bool isPlayerBlocked;
-        public bool inAngle;
-        
-        public EnemyState enemyState;
+        [BoxGroup("DEBUG")][ReadOnly] public bool inRange;
+        [BoxGroup("DEBUG")][ReadOnly] public bool isPlayerBlocked;
+        [BoxGroup("DEBUG")][ReadOnly] public bool inAngle;
+        [BoxGroup("DEBUG")][ReadOnly] public EnemyState enemyState;
 
         #endregion
         
-
         #region ACTION
 
         public EnemyMovementSetting movementSetting;
@@ -51,7 +50,7 @@ namespace Enemy
 
         #region EVENTS
 
-        public Events.OnEnemyStateUpdateEvent onEnemyStateUpdateEvent;
+        [HideInInspector] public Events.OnEnemyStateUpdateEvent onEnemyStateUpdateEvent;
 
         #endregion
 

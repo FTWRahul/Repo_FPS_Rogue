@@ -1,9 +1,10 @@
 ﻿using System;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
-    public Vector2 mounseXY;
+    [BoxGroup("DEBUG")][ReadOnly] public Vector2 mounseXY;
     
     #region References
 

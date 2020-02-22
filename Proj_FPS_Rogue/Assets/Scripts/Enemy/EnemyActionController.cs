@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,12 +8,12 @@ namespace Enemy
 {
     public class EnemyActionController : MonoBehaviour
     {
-        #region STATS
+        #region DEBUG
 
-        public bool canAttack;
-        public bool isPlayerBlocked;
-        public bool isAttacking;
-        public bool isResetting;
+        [BoxGroup("DEBUG")][ReadOnly] public bool canAttack;
+        [BoxGroup("DEBUG")][ReadOnly] public bool isPlayerBlocked;
+        [BoxGroup("DEBUG")][ReadOnly] public bool isAttacking;
+        [BoxGroup("DEBUG")][ReadOnly] public bool isResetting;
 
         #endregion
         

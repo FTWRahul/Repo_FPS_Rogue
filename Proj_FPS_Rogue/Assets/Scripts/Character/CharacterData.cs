@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class CharacterData : MonoBehaviour
@@ -20,12 +21,11 @@ public class CharacterData : MonoBehaviour
         RELOADING
     }
 
-    #region Character state
+    #region DEBUG
 
-    public LocoState locoState;
-    public Action action;
-    public Damage lastDamage;
-    
+    [BoxGroup("DEBUG")][ReadOnly] public LocoState locoState;
+    [BoxGroup("DEBUG")][ReadOnly] public Action action;
+
     #endregion
 
     #region Events

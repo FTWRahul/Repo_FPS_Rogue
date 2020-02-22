@@ -3,6 +3,7 @@
 
 #if true // MODULE_MARKER
 using System;
+using DG.Tweening;
 using DG.Tweening.Core;
 using DG.Tweening.Core.Enums;
 using DG.Tweening.Plugins;

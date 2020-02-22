@@ -1,24 +1,30 @@
 ﻿using System;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class HealthState : MonoBehaviour, IReceiveDamage
 {
     #region EVENTS
 
-    public Events.OnHealthChangeEvent onHealthChange;
-    public Events.OnLastDamageChangedEvent onLastDamageChanged;
-    public Events.OnDamageEvent onDamage;
-    public Events.OnDeathEvent onDeath;
+    [HideInInspector] public Events.OnHealthChangeEvent onHealthChange;
+    [HideInInspector] public Events.OnLastDamageChangedEvent onLastDamageChanged;
+    [HideInInspector] public Events.OnDamageEvent onDamage;
+    [HideInInspector] public Events.OnDeathEvent onDeath;
 
     #endregion
 
     #region STATS
-
-    public bool dead;
-    public int health;
+    
     public int maxHealth;
-    public Damage lastDamage;
+    
+    #endregion
 
+    #region DEBUG
+
+    [BoxGroup("DEBUG")][ReadOnly] public bool dead;
+    [BoxGroup("DEBUG")][ReadOnly] public int health;
+    [BoxGroup("DEBUG")][ReadOnly] public Damage lastDamage;
+    
     #endregion
    
     
