@@ -52,9 +52,9 @@ namespace Enemy
             {
                 _targetOldPosition = targetPosition;
                 if (_pursuer.GetCurCondition() == "Movement")
-                    _pursuer.RefinePath(targetPosition);
+                    _pursuer.RefinePath(targetPosition + Vector3.up * 3f);
                 else
-                    _pursuer.MoveTo(targetPosition, true);
+                    _pursuer.MoveTo(targetPosition + Vector3.up * 3f, true);
             }
         }
         
