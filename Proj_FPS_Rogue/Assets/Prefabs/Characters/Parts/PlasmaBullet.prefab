@@ -109,9 +109,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partSO: {fileID: 11400000, guid: 9ac7ad83534669341a1e90c5e425d3f8, type: 2}
   bulletModifier: {fileID: 4321435834637274876}
-  radius: 20
-  rateOfZaps: 0.1
-  damage: 8
+  radius: 15
+  rateOfZaps: 0.2
+  damage: 4
 --- !u!114 &4321435834637274876
 MonoBehaviour:
   m_ObjectHideFlags: 0
