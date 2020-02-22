@@ -1,6 +1,6 @@
 ﻿using System;
 using UnityEngine;
-
+using System.Linq;
 public class GunPart : MonoBehaviour, IGunPart
 {
     public GunPartSO partSO;
@@ -15,7 +15,6 @@ public class GunPart : MonoBehaviour, IGunPart
     public virtual void TryPickUp(Gun inGun)
     {
         this.gun = inGun;
-
         foreach (var slot in this.gun.parts)
         {
             if (slot.Key.partEnum == partSO.partEnum)
