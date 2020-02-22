@@ -1,4 +1,5 @@
 ﻿using System;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,9 +14,9 @@ namespace Enemy
     
     public class EnemyMovementController : MonoBehaviour
     {
-        #region STATS
+        #region DEBUG
 
-        private MovementState _movementState;
+        [BoxGroup("DEBUG")][SerializeField][ReadOnly] private MovementState movementState;
 
         #endregion
         
@@ -54,7 +55,7 @@ namespace Enemy
         
         private void Update()
         {
-            if (_movementState == MovementState.FOLLOWING)
+            if (movementState == MovementState.FOLLOWING)
             {
                 _movementBehaviour.Move(TargetPosition);
             }
@@ -67,13 +68,13 @@ namespace Enemy
             switch (newState)
             {
                 case EnemyState.PURSUE:
-                    _movementState = MovementState.FOLLOWING;
+                    movementState = MovementState.FOLLOWING;
                     break;
                 case EnemyState.ATTACK:
-                    _movementState = MovementState.ACTING;
+                    movementState = MovementState.ACTING;
                     break;
                 case EnemyState.DODGE:
-                    _movementState = MovementState.DODGING;
+                    movementState = MovementState.DODGING;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(newState), newState, null);

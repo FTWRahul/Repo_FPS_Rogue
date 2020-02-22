@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: DefaultMovementSetting
   m_EditorClassIdentifier: 
   movementType: 0
-  speed: 1e-45
-  stoppingDistance: 10
+  speed: 5
+  stoppingDistance: 5
   xMin: 0
   xMax: 0
   yMin: 0
