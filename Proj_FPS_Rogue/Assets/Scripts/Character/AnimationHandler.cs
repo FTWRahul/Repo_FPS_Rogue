@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AnimationHandler : MonoBehaviour
 {
@@ -7,19 +8,22 @@ public class AnimationHandler : MonoBehaviour
 
     private CharacterData _characterData;
     private Animator _animator;
-    
+    private HealthState _healthState;
+
     #endregion
 
     #region Parameters id
-    
+
     private static readonly int Stand = Animator.StringToHash("AnimState_Stand");
     private static readonly int Run = Animator.StringToHash("AnimState_Run");
     private static readonly int Jump = Animator.StringToHash("AnimState_Jump");
     private static readonly int InAir = Animator.StringToHash("AnimState_InAir");
-    
+
     private static readonly int PrimaryFire = Animator.StringToHash("Action_PrimaryFire");
     private static readonly int SecondaryFire = Animator.StringToHash("Action_SecondaryFire");
     private static readonly int Reloading = Animator.StringToHash("TriggerAction_Reloading");
+
+    private static readonly int GetHit = Animator.StringToHash("Hit_Reaction");
 
     #endregion
 
@@ -32,6 +36,8 @@ public class AnimationHandler : MonoBehaviour
     {
         _characterData = GetComponent<CharacterData>();
         _animator = GetComponentInChildren<Animator>();
+        _healthState = GetComponent<HealthState>();
+        _healthState.onDamage.AddListener(SetHit);
     }
 
     private void Update()
@@ -51,11 +57,20 @@ public class AnimationHandler : MonoBehaviour
     private void UpdateAction()
     {
         _animator.SetBool(PrimaryFire, _characterData.action == CharacterData.Action.PRIMARY_FIRE);
-        /*_animator.SetBool(Reloading, _characterData.action == CharacterData.Action.RELOADING);*/
+
         if (_characterData.action == CharacterData.Action.RELOADING &&
             !_animator.GetCurrentAnimatorStateInfo(2).IsName("Reload"))
         {
             _animator.SetTrigger(Reloading);
         }
     }
+
+    private void SetHit(int damage, int health)
+    {
+        if (!_animator.GetCurrentAnimatorStateInfo(2).IsName("Damage_Reaction"))
+        {
+            _animator.SetTrigger(GetHit);
+        }
+    }
+
 }

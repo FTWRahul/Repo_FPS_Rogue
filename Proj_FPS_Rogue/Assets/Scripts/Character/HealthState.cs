@@ -70,12 +70,6 @@ public class HealthState : MonoBehaviour, IReceiveDamage
         onDeath?.Invoke();
         Destroy(gameObject);
     }
-
-    [ContextMenu("Damage")]
-    public void Deal20()
-    {
-        ApplyDamage(20);
-    }
 }
 
 

@@ -21,6 +21,12 @@ public class CharacterData : MonoBehaviour
         RELOADING
     }
 
+    public enum Damage
+    {
+        NONE,
+        BASIC
+    }
+
     #region DEBUG
 
     [BoxGroup("DEBUG")][ReadOnly] public LocoState locoState;
@@ -43,5 +49,10 @@ public class CharacterData : MonoBehaviour
     {
         //GameDebug.Log("SetLocoState:" + locoState);
         this.locoState = locoState;
+    }
+
+    public void SetDamage(Damage damage)
+    {
+        
     }
 }

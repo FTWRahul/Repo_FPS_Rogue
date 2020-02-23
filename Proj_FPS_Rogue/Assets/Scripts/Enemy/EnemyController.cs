@@ -67,9 +67,9 @@ namespace Enemy
         {
             _target = FindObjectOfType<CharacterData>().transform;
             
-            /*_enemyActionController = GetComponent<EnemyActionController>();
+            _enemyActionController = GetComponent<EnemyActionController>();
             _enemyActionController.Init(actionSetting, _target);
-            onEnemyStateUpdateEvent.AddListener(_enemyActionController.UpdateActionState);*/
+            onEnemyStateUpdateEvent.AddListener(_enemyActionController.UpdateActionState);
             
             _enemyMovementController = GetComponent<EnemyMovementController>();
             _enemyMovementController.Init(_target,movementSetting);
