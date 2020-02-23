@@ -1314,7 +1314,7 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0
   m_TransitionOffset: 0
-  m_ExitTime: 0.75
+  m_ExitTime: 0.031670682
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -3632,7 +3632,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Reload
-  m_Speed: 1
+  m_Speed: 0.75
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101589727708475884}
@@ -4169,7 +4169,7 @@ AnimatorStateMachine:
     m_Position: {x: 492, y: -204, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102525485090110906}
-    m_Position: {x: 660, y: 36, z: 0}
+    m_Position: {x: 660, y: 30, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 1101285412595583372}

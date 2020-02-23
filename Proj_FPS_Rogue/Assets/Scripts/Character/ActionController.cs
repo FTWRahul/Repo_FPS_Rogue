@@ -11,6 +11,7 @@ public class ActionController : MonoBehaviour
     #endregion
     
     private bool HasInput => isPrimaryClicked == true;
+    private bool IsReloading => _primaryGun.isReloading;
 
     #region REFERENCES
 
@@ -59,11 +60,15 @@ public class ActionController : MonoBehaviour
             {
                 _characterData.SetAction(CharacterData.Action.PRIMARY_FIRE);
             }
-            
         }
         else
         {
             _characterData.SetAction(CharacterData.Action.NONE);
+        }
+
+        if (IsReloading)
+        {
+            _characterData.SetAction(CharacterData.Action.RELOADING);
         }
     }
 }

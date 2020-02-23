@@ -8350,7 +8350,7 @@ MonoBehaviour:
   traceCellsInEditor: 1
   agressiveUseMultithreading: 0
   levelToTrace: 1
-  isPrimaryProcessingCompleted: 1
+  isPrimaryProcessingCompleted: 0
   graphObtainingMethod: 1
   serializedGraphToImport: {fileID: 4900000, guid: f061c261706668d499025fb032602fda,
     type: 3}

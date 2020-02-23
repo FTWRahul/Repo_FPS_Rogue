@@ -19,7 +19,7 @@ public class AnimationHandler : MonoBehaviour
     
     private static readonly int PrimaryFire = Animator.StringToHash("Action_PrimaryFire");
     private static readonly int SecondaryFire = Animator.StringToHash("Action_SecondaryFire");
-    private static readonly int Reloading = Animator.StringToHash("Action_Reloading");
+    private static readonly int Reloading = Animator.StringToHash("TriggerAction_Reloading");
 
     #endregion
 
@@ -51,5 +51,11 @@ public class AnimationHandler : MonoBehaviour
     private void UpdateAction()
     {
         _animator.SetBool(PrimaryFire, _characterData.action == CharacterData.Action.PRIMARY_FIRE);
+        /*_animator.SetBool(Reloading, _characterData.action == CharacterData.Action.RELOADING);*/
+        if (_characterData.action == CharacterData.Action.RELOADING &&
+            !_animator.GetCurrentAnimatorStateInfo(2).IsName("Reload"))
+        {
+            _animator.SetTrigger(Reloading);
+        }
     }
 }

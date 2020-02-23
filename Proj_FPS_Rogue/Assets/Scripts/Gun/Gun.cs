@@ -8,7 +8,7 @@ public class Gun : MonoBehaviour
 {
     //The shoot event things subscribe to
     public Events.OnShootEvent shootEvent;
-    
+
     //Prefab of bullet
     public GameObject projectilePrefab;
     
@@ -22,7 +22,7 @@ public class Gun : MonoBehaviour
 
     
     //Private member variables
-    private bool _isReloading;
+    public bool isReloading;
     private int _shotCount;
     private float _timeBetweenLastShot;
     
@@ -86,7 +86,7 @@ public class Gun : MonoBehaviour
     //called by action controller on the correct input
     public void Shoot()
     {
-        if (_timeBetweenLastShot > rateOfFire && !_isReloading)
+        if (_timeBetweenLastShot > rateOfFire && !isReloading)
         {
             shootEvent.Invoke();
             
@@ -106,7 +106,7 @@ public class Gun : MonoBehaviour
 
     IEnumerator ReloadGun()
     {
-        _isReloading = true;
+        isReloading = true;
         float i = 0;
         Debug.Log("Reload Started");
         while (i < reloadSpeed)
@@ -117,7 +117,7 @@ public class Gun : MonoBehaviour
         }
 
         _shotCount = 0;
-        _isReloading = false;
+        isReloading = false;
         Debug.Log("Reload Ended");
     }
 }
