@@ -25,6 +25,8 @@ public class AnimationHandler : MonoBehaviour
 
     private static readonly int GetHit = Animator.StringToHash("Hit_Reaction");
 
+    private static readonly int RunTree = Animator.StringToHash("Sprint_Weight");
+
     #endregion
 
     private void Start()
@@ -52,6 +54,7 @@ public class AnimationHandler : MonoBehaviour
         _animator.SetBool(Run, _characterData.locoState == CharacterData.LocoState.GROUND_MOVE);
         _animator.SetBool(Jump, _characterData.locoState == CharacterData.LocoState.JUMP);
         _animator.SetBool(InAir, _characterData.locoState == CharacterData.LocoState.IN_AIR);
+        _animator.SetFloat(RunTree, _characterData.sprint ? 1 : 0);
     }
 
     private void UpdateAction()
@@ -72,5 +75,6 @@ public class AnimationHandler : MonoBehaviour
             _animator.SetTrigger(GetHit);
         }
     }
+    
 
 }

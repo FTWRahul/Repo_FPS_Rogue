@@ -30,15 +30,10 @@ public class InputHandler : MonoBehaviour
     {
         _movementController.inputVector = new Vector2(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
 
-        _movementController.isRunClicked = Input.GetKeyDown(KeyCode.LeftShift);
-        _movementController.isRunReleased = Input.GetKeyUp(KeyCode.LeftShift);
+        _movementController.isSprinting = Input.GetKey(KeyCode.LeftShift);
 
-        if(_movementController.isRunClicked)
-            _movementController.isRunning = true;
-
-        if(_movementController.isRunReleased)
-            _movementController.isRunning = false;
-
+        _movementController.isRunning = _movementController.inputVector != Vector2.zero;
+        
         _movementController.isJumpClicked = Input.GetKeyDown(KeyCode.Space);
     }
 

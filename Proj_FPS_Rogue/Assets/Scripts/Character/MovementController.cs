@@ -46,8 +46,7 @@ public class MovementController : MonoBehaviour
     #region DEBUG
     
     [BoxGroup("DEBUG")][ReadOnly] public Vector2 inputVector;
-    [BoxGroup("DEBUG")][ReadOnly] public bool isRunClicked;
-    [BoxGroup("DEBUG")][ReadOnly] public bool isRunReleased;
+    [BoxGroup("DEBUG")][ReadOnly] public bool isSprinting;
     [BoxGroup("DEBUG")][ReadOnly] public bool isRunning;
     [BoxGroup("DEBUG")][ReadOnly] public bool isJumpClicked;
     [BoxGroup("DEBUG")][ReadOnly] public bool isFalling;
@@ -128,7 +127,7 @@ public class MovementController : MonoBehaviour
     {
         smoothCurrentSpeed = Mathf.Lerp(smoothCurrentSpeed, currentSpeed, Time.deltaTime * smoothVelocitySpeed);
 
-        if(isRunning && CanRun())
+        if(isSprinting && CanRun())
         {
             float walkRunPercent = Mathf.InverseLerp(walkSpeed,runSpeed, smoothCurrentSpeed);
             finalSmoothCurrentSpeed = runTransitionCurve.Evaluate(walkRunPercent) * walkRunSpeedDifference + walkSpeed;
@@ -174,7 +173,7 @@ public class MovementController : MonoBehaviour
     
     void CalculateSpeed()
     {
-        currentSpeed = isRunning && CanRun() ? runSpeed : walkSpeed;
+        currentSpeed = isSprinting && CanRun() ? runSpeed : walkSpeed;
         currentSpeed = !HasInput ? 0f : currentSpeed;
         currentSpeed = inputVector.y == -1 ? currentSpeed * moveBackwardsSpeedPercent : currentSpeed;
         currentSpeed = inputVector.x != 0 && inputVector.y ==  0 ? currentSpeed * moveSideSpeedPercent :  currentSpeed;
@@ -231,6 +230,7 @@ public class MovementController : MonoBehaviour
         if (isGrounded)
         {
             _characterData.SetLocoState(HasInput ? CharacterData.LocoState.GROUND_MOVE : CharacterData.LocoState.STAND);
+            _characterData.sprint = isSprinting;
         }
         if (isJumpClicked)
         {

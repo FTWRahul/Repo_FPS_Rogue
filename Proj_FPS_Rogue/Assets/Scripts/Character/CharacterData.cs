@@ -27,6 +27,8 @@ public class CharacterData : MonoBehaviour
         BASIC
     }
 
+    public bool sprint;
+
     #region DEBUG
 
     [BoxGroup("DEBUG")][ReadOnly] public LocoState locoState;
