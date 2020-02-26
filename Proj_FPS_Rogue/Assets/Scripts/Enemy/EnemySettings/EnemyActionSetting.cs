@@ -1,3 +1,4 @@
+using Enemy.Attack;
 using UnityEngine;
 
 namespace Enemy
@@ -8,6 +9,7 @@ namespace Enemy
         #region ACTION
 
         public EnemyActionType enemyActionType;
+        public DistanceAttackType distanceAttackType;
         public float attackRate;
         public int attackDamage;
         public int maxAttackAngle;
@@ -17,7 +19,7 @@ namespace Enemy
 
         #region DISTANCE ATTACK
 
-        public EnemyDistanceAttackType enemyDistanceAttackType;
+        public AttackCalculationType attackCalculationType;
         public GameObject projectilePrefab;
         public Transform muzzlePosition;
         public float projectileSpeed;

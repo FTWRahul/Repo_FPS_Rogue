@@ -20,11 +20,17 @@ namespace Enemy
     public enum EnemyActionType
     {
         DISTANCE,
-        DISTANCE_TRIPLE,
         MELEE
     }
 
-    public enum EnemyDistanceAttackType
+    public enum DistanceAttackType
+    {
+        SINGLE,
+        TRIPLE,
+        MACHINE_GUN
+    }
+
+    public enum AttackCalculationType
     {
         NONE,
         PREDICTED,

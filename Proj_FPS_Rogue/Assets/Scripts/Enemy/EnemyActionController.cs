@@ -38,15 +38,27 @@ namespace Enemy
             {
                 case EnemyActionType.DISTANCE:
                     settings.muzzlePosition = transform.Find("Muzzle");
-                    _attackBehaviour = new EnemySingleDistanceAttack(settings, GetComponent<HealthState>(), target);
+
+                    switch (settings.distanceAttackType)
+                    {
+                        case DistanceAttackType.SINGLE:
+                            _attackBehaviour = new EnemySingleDistanceAttack(settings, GetComponent<HealthState>(), target);
+                            break;
+                        case DistanceAttackType.TRIPLE:
+                            _attackBehaviour = new EnemyTripleDistanceAttack(settings, GetComponent<HealthState>(), target);
+                            break;
+                        case DistanceAttackType.MACHINE_GUN:
+                            _attackBehaviour = new EnemyMachineGunDistanceAttack(settings, GetComponent<HealthState>(), target);
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                    
                     break;
                 case EnemyActionType.MELEE:
                     _attackBehaviour = new EnemyMeleeAttack(settings);
                     break;
-                case EnemyActionType.DISTANCE_TRIPLE:
-                    settings.muzzlePosition = transform.Find("Muzzle");
-                    _attackBehaviour = new EnemyTripleDistanceAttack(settings, GetComponent<HealthState>(), target);
-                    break;
+                
                 default:
                     throw new ArgumentOutOfRangeException();
             }

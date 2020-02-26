@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: DefaultActionSetting
   m_EditorClassIdentifier: 
   enemyActionType: 0
+  distanceAttackType: 0
   attackRate: 1
   attackDamage: 10
   maxAttackAngle: 45
   maxAttackDistance: 12
-  enemyDistanceAttackType: 1
+  attackCalculationType: 1
   projectilePrefab: {fileID: 3573303896374179134, guid: e3362c30116f70644acabfee92083505,
     type: 3}
   muzzlePosition: {fileID: 0}
