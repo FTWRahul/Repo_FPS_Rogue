@@ -37,7 +37,7 @@ public class TripleShootBehaviour : MonoBehaviour, IShootBehaviour
             Projectile go = Instantiate(_gun.projectilePrefab, _gun.muzzleTransform.position, Quaternion.identity).GetComponent<Projectile>();
             var dir = Quaternion.Euler(0,angle,0) * _gun.transform.forward;
             angle += Mathf.Abs(_originalAngle);
-            go.Initialize(_playerHealthState,_gun.projectileForce, dir, _gun.damage, _gun.bulletModifiers);
+            go.Initialize(_playerHealthState,_gun.projectileForce, dir, _gun.damage, _gun.bulletModifiers, LayerMask.NameToLayer("Enemy"));
         }
         angle = _originalAngle;
     }

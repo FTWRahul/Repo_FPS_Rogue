@@ -10,8 +10,9 @@ public class Projectile : MonoBehaviour
     private float _force;
     private Vector3 _shootDir;
     private int _damage;
+    public LayerMask _layerToDamage;
     private List<IBulletModifier> _bulletModifiers = new List<IBulletModifier>();
-
+    
     //For saving last damage into saver
     private HealthState _sender;
     
@@ -20,13 +21,14 @@ public class Projectile : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
     }
 
-    public void Initialize(HealthState sender,float force , Vector3 dir, int damage, List<IBulletModifier> mods)
+    public void Initialize(HealthState sender,float force , Vector3 dir, int damage, List<IBulletModifier> mods, LayerMask layerMask)
     {
         _sender = sender;
         _force = force;
         _shootDir = dir;
         _damage = damage;
         _bulletModifiers = mods;
+        _layerToDamage = layerMask;
         UpdateBullet();
         Launch();
     }
@@ -50,7 +52,7 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.collider.GetComponent<IReceiveDamage>() != null)
+        if (other.collider.GetComponent<IReceiveDamage>() != null && other.collider.gameObject.layer == _layerToDamage)
         {
             //apply damage will return damage struct with damage data
             _sender.SetLastDamage(other.collider.GetComponent<IReceiveDamage>().ApplyDamage(_damage)); 

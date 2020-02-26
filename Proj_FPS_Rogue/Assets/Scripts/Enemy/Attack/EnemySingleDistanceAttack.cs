@@ -1,25 +1,26 @@
 using System;
 using UnityEngine;
 
-namespace Enemy
+namespace Enemy.Attack
 {
-    public class EnemyDistanceAttack : IAttackBehaviour
+    public class EnemySingleDistanceAttack : IAttackBehaviour
     {
         private readonly GameObject _projectilePrefab;
         private readonly Transform _muzzlePosition;
         private readonly float _projectileSpeed;
-        private int _attackDamage;
-        private Vector3 _shootingDirectionNormalized;
+        private readonly int _attackDamage;
+        private  Vector3 _shootingDirectionNormalized;
         
-        private IDistanceAttackBehaviour _distanceAttackBehaviour;
+        private readonly IDistanceAttackBehaviour _distanceAttackBehaviour;
         
         //shouldn't be here - temporary
-        private HealthState _healthState;
-        private Transform _target;
-        public EnemyDistanceAttack(EnemyActionSetting settings, HealthState healthState, Transform target)
+        private readonly HealthState _healthState;
+        private readonly Transform _target;
+        
+        public  EnemySingleDistanceAttack(EnemyActionSetting settings, HealthState healthState, Transform target)
         {
-            _target = target;
-            _healthState = healthState;
+            this._target = target;
+            this._healthState = healthState;
             _projectilePrefab = settings.projectilePrefab;
             _muzzlePosition = settings.muzzlePosition;
             _projectileSpeed = settings.projectileSpeed;

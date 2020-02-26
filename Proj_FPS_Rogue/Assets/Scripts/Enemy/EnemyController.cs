@@ -20,6 +20,7 @@ namespace Enemy
     public enum EnemyActionType
     {
         DISTANCE,
+        DISTANCE_TRIPLE,
         MELEE
     }
 

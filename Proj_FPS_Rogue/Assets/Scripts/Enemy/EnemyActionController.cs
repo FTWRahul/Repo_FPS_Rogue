@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Enemy.Attack;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
@@ -25,7 +26,7 @@ namespace Enemy
         
         #region REFERENCES
         
-        private IAttackBehaviour _attackBehaviour;
+        [BoxGroup("DEBUG")][ReadOnly] private IAttackBehaviour _attackBehaviour;
         
         #endregion
         
@@ -37,10 +38,14 @@ namespace Enemy
             {
                 case EnemyActionType.DISTANCE:
                     settings.muzzlePosition = transform.Find("Muzzle");
-                    _attackBehaviour = new EnemyDistanceAttack(settings, GetComponent<HealthState>(), target);
+                    _attackBehaviour = new EnemySingleDistanceAttack(settings, GetComponent<HealthState>(), target);
                     break;
                 case EnemyActionType.MELEE:
                     _attackBehaviour = new EnemyMeleeAttack(settings);
+                    break;
+                case EnemyActionType.DISTANCE_TRIPLE:
+                    settings.muzzlePosition = transform.Find("Muzzle");
+                    _attackBehaviour = new EnemyTripleDistanceAttack(settings, GetComponent<HealthState>(), target);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

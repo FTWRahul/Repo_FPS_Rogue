@@ -20,10 +20,11 @@ public class ProjectileLauncher : MonoBehaviour
         }
     }
 
-    public void LaunchProjectile(HealthState sender,GameObject prefab, Transform from, Vector3 to, float speed, int damage)
+    public GameObject LaunchProjectile(HealthState sender,GameObject prefab, Transform from, Vector3 to, float speed, int damage)
     {
         Debug.Log("BOOP" + speed);
         Projectile go = Instantiate(prefab, from.position, from.rotation).GetComponent<Projectile>();
-        go.Initialize(sender, speed, to, damage, new List<IBulletModifier>()); // PLEASE REMOVE THIS LIST
+        go.Initialize(sender, speed, to, damage, new List<IBulletModifier>(), LayerMask.NameToLayer("Player")); // PLEASE REMOVE THIS LIST
+        return go.gameObject;
     }
 }
