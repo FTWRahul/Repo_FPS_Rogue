@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -8,10 +7,9 @@ namespace Enemy.Attack
 {
     public class EnemyMachineGunDistanceAttack : EnemyDistanceAttack, IAttackBehaviour
     {
-        private float offset = .20f;
-        private int _rate = 150; //in milliseconds
-        private int _magazineAmount = 36;
-        private int _magazineLeft;
+        private readonly float _offset;
+        private readonly int _rate; //in milliseconds
+        private readonly int _magazineAmount;
 
         public EnemyMachineGunDistanceAttack(EnemyActionSetting settings, HealthState healthState, Transform target)
         {
@@ -20,7 +18,10 @@ namespace Enemy.Attack
             projectilePrefab = settings.projectilePrefab;
             muzzlePosition = settings.muzzlePosition;
             projectileSpeed = settings.projectileSpeed;
-            attackDamage = settings.attackDamage;
+            attackDamage = settings.damage;
+            _offset = settings.offset;
+            _rate = settings.rate;
+            _magazineAmount = settings.magazineAmount;
             
             switch (settings.attackCalculationType)
             {
@@ -52,9 +53,9 @@ namespace Enemy.Attack
 
                 shootingDirectionNormalized =
                     distanceAttackBehaviour.GetAttackDirection(healthState.transform, target, projectileSpeed);
-                shootingDirectionNormalized = new Vector3(shootingDirectionNormalized.x + Random.Range(-offset, offset),
-                    shootingDirectionNormalized.y + Random.Range(-offset, offset),
-                    shootingDirectionNormalized.z + Random.Range(-offset, offset));
+                shootingDirectionNormalized = new Vector3(shootingDirectionNormalized.x + Random.Range(-_offset, _offset),
+                    shootingDirectionNormalized.y + Random.Range(-_offset, _offset),
+                    shootingDirectionNormalized.z + Random.Range(-_offset, _offset));
                 ProjectileLauncher.Instance.LaunchProjectile(healthState, projectilePrefab, muzzlePosition,
                     shootingDirectionNormalized, projectileSpeed, attackDamage);
             }

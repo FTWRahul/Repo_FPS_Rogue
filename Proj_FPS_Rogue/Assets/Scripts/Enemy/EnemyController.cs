@@ -100,12 +100,12 @@ namespace Enemy
 
         bool CheckAngle()
         {
-            return Vector3.Angle(transform.TransformDirection(Vector3.forward), _target.position - transform.position) <= actionSetting.maxAttackAngle;
+            return Vector3.Angle(transform.TransformDirection(Vector3.forward), _target.position - transform.position) <= actionSetting.maxAngle;
         }
 
         bool CheckDistance()
         {
-            return (_target.position - transform.position).sqrMagnitude <= actionSetting.maxAttackDistance * actionSetting.maxAttackDistance;
+            return (_target.position - transform.position).sqrMagnitude <= actionSetting.maxDistance * actionSetting.maxDistance;
         }
 
         void UpdateState(EnemyState newState)
@@ -117,7 +117,7 @@ namespace Enemy
         void CheckForBlocking()
         {
             Ray ray = new Ray(transform.position, _target.position);
-            if (Physics.Raycast(ray, out RaycastHit hit, actionSetting.maxAttackDistance))
+            if (Physics.Raycast(ray, out RaycastHit hit, actionSetting.maxDistance))
             {
                 isPlayerBlocked = hit.transform != _target;
             }

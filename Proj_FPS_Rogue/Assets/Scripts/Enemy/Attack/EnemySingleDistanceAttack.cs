@@ -13,7 +13,7 @@ namespace Enemy.Attack
             projectilePrefab = settings.projectilePrefab;
             muzzlePosition = settings.muzzlePosition;
             projectileSpeed = settings.projectileSpeed;
-            attackDamage = settings.attackDamage;
+            attackDamage = settings.damage;
             
             switch (settings.attackCalculationType)
             {

@@ -34,7 +34,7 @@ namespace Enemy
         {
             _attackRate = settings.attackRate;
 
-            switch (settings.enemyActionType)
+            switch (settings.actionType)
             {
                 case EnemyActionType.DISTANCE:
                     settings.muzzlePosition = transform.Find("Muzzle");

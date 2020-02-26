@@ -5,7 +5,7 @@ namespace Enemy.Attack
 {
     public class EnemyTripleDistanceAttack : EnemyDistanceAttack, IAttackBehaviour
     {
-        private float _angle = -20;
+        private float _angle;
         private readonly float _originalAngle;
 
         public EnemyTripleDistanceAttack(EnemyActionSetting settings, HealthState healthState, Transform target)
@@ -15,8 +15,9 @@ namespace Enemy.Attack
             projectilePrefab = settings.projectilePrefab;
             muzzlePosition = settings.muzzlePosition;
             projectileSpeed = settings.projectileSpeed;
-            attackDamage = settings.attackDamage;
-            
+            attackDamage = settings.damage;
+            _angle = settings.angleTripleAttack;
+
             switch (settings.attackCalculationType)
             {
                 case AttackCalculationType.PREDICTED:

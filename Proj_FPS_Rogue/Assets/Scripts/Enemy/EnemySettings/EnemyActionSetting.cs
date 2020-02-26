@@ -8,12 +8,12 @@ namespace Enemy
     {
         #region ACTION
 
-        public EnemyActionType enemyActionType;
+        public EnemyActionType actionType;
         public DistanceAttackType distanceAttackType;
         public float attackRate;
-        public int attackDamage;
-        public int maxAttackAngle;
-        public int maxAttackDistance;
+        public int damage;
+        public int maxAngle;
+        public int maxDistance;
 
         #endregion
 
@@ -23,7 +23,13 @@ namespace Enemy
         public GameObject projectilePrefab;
         public Transform muzzlePosition;
         public float projectileSpeed;
-
+        
+        public float angleTripleAttack;
+        
+        public float offset;
+        public int rate; 
+        public int magazineAmount;
+        
         #endregion
     }
 }

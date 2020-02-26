@@ -8,7 +8,7 @@ namespace Enemy
         
         public EnemyMeleeAttack (EnemyActionSetting setting)
         {
-            _attackDamage = setting.attackDamage;
+            _attackDamage = setting.damage;
         }
         
         public void Attack()

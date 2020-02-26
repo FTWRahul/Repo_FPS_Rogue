@@ -10,16 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f215369fbd945ce850f763e8a75c244, type: 3}
-  m_Name: MachineGunDistanceEnemyActionSetting
+  m_Name: SingleActionSetting
   m_EditorClassIdentifier: 
-  enemyActionType: 0
-  distanceAttackType: 2
-  attackRate: 7
-  attackDamage: 5
-  maxAttackAngle: 30
-  maxAttackDistance: 15
+  actionType: 0
+  distanceAttackType: 0
+  attackRate: 3
+  damage: 10
+  maxAngle: 4
+  maxDistance: 6
   attackCalculationType: 1
   projectilePrefab: {fileID: 3573303896374179134, guid: e3362c30116f70644acabfee92083505,
     type: 3}
   muzzlePosition: {fileID: 0}
-  projectileSpeed: 25
+  projectileSpeed: 30
+  angleTripleAttack: 0
+  offset: 0.5
+  rate: 0
+  magazineAmount: 100
