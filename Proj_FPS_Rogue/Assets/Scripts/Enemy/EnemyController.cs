@@ -27,7 +27,14 @@ namespace Enemy
     {
         SINGLE,
         TRIPLE,
-        MACHINE_GUN
+        MACHINE_GUN,
+        NONE
+    }
+
+    public enum MeleeAttackType
+    {
+        EXPLOSION,
+        NONE
     }
 
     public enum AttackCalculationType

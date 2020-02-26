@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: MachineGunDistanceEnemyActionSetting
   m_EditorClassIdentifier: 
   actionType: 0
-  distanceAttackType: 2
-  attackRate: 7
+  distanceAttackType: 1
+  meleeAttackType: 0
+  attackRate: 3
   damage: 5
-  maxAngle: 20
-  maxDistance: 20
+  maxAngle: 25
+  maxDistance: 10
   attackCalculationType: 1
   projectilePrefab: {fileID: 3573303896374179134, guid: e3362c30116f70644acabfee92083505,
     type: 3}
@@ -27,3 +28,4 @@ MonoBehaviour:
   offset: 0.4
   rate: 200
   magazineAmount: 120
+  timeToExplode: 0

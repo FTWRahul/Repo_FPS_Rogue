@@ -50,13 +50,24 @@ namespace Enemy
                         case DistanceAttackType.MACHINE_GUN:
                             _attackBehaviour = new EnemyMachineGunDistanceAttack(settings, GetComponent<HealthState>(), target);
                             break;
+                        case DistanceAttackType.NONE:
+                            break;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
                     
                     break;
                 case EnemyActionType.MELEE:
-                    _attackBehaviour = new EnemyMeleeAttack(settings);
+
+                    switch (settings.meleeAttackType)
+                    {
+                        case MeleeAttackType.EXPLOSION:
+                            break;
+                        case MeleeAttackType.NONE:
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
                     break;
                 
                 default:

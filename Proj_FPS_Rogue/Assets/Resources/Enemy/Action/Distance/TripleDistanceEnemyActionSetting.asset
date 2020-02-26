@@ -10,20 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f215369fbd945ce850f763e8a75c244, type: 3}
-  m_Name: MeleeActionSetting
+  m_Name: TripleDistanceEnemyActionSetting
   m_EditorClassIdentifier: 
-  actionType: 1
-  distanceAttackType: 0
+  actionType: 0
+  distanceAttackType: 1
+  meleeAttackType: 0
   attackRate: 3
   damage: 5
-  maxAngle: 0
-  maxDistance: 0
-  attackCalculationType: 0
+  maxAngle: 25
+  maxDistance: 10
+  attackCalculationType: 1
   projectilePrefab: {fileID: 3573303896374179134, guid: e3362c30116f70644acabfee92083505,
     type: 3}
   muzzlePosition: {fileID: 0}
-  projectileSpeed: 0
-  angleTripleAttack: 0
+  projectileSpeed: 25
+  angleTripleAttack: 20
   offset: 0
   rate: 0
   magazineAmount: 0
+  timeToExplode: 0

@@ -10,6 +10,7 @@ namespace Enemy
 
         public EnemyActionType actionType;
         public DistanceAttackType distanceAttackType;
+        public MeleeAttackType meleeAttackType;
         public float attackRate;
         public int damage;
         public int maxAngle;
@@ -30,6 +31,12 @@ namespace Enemy
         public int rate; 
         public int magazineAmount;
         
+        #endregion
+
+        #region MELEE ATTACK
+
+        public int timeToExplode;
+
         #endregion
     }
 }

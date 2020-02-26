@@ -1,21 +1,7 @@
-using UnityEngine;
-
 namespace Enemy
 {
-    public class EnemyMeleeAttack : IAttackBehaviour
+    public class EnemyMeleeAttack
     {
-        private int _attackDamage;
-        
-        public EnemyMeleeAttack (EnemyActionSetting setting)
-        {
-            _attackDamage = setting.damage;
-        }
-        
-        public void Attack()
-        {
-            //some check if player will get damage
-            Debug.Log("Melee attack");
-            //DamagePlayer
-        }
+        private protected int attackDamage;
     }
 }

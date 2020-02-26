@@ -13,7 +13,7 @@ public class EnemyActionSettingEditor : Editor
     private SerializedProperty
         _enemyActionType,
         _distanceAttackType,
-        /*_meleeAttackType,*/
+        _meleeAttackType,
         _rate,
         _damage,
         _maxAngle,
@@ -24,14 +24,15 @@ public class EnemyActionSettingEditor : Editor
         _angleTriple,
         _offset,
         _machineGunRate,
-        _magazineAmount;
+        _magazineAmount,
+        _timeToExplode;
 
 
     private void OnEnable()
     {
         _enemyActionType = serializedObject.FindProperty("actionType");
         _distanceAttackType = serializedObject.FindProperty("distanceAttackType");
-        /*_meleeAttackType  = serializedObject.FindProperty("meleeAttackType");*/
+        _meleeAttackType  = serializedObject.FindProperty("meleeAttackType");
         _rate = serializedObject.FindProperty("attackRate");
         _damage = serializedObject.FindProperty("damage");
         _maxAngle = serializedObject.FindProperty("maxAngle");
@@ -43,6 +44,7 @@ public class EnemyActionSettingEditor : Editor
         _offset = serializedObject.FindProperty("offset");
         _machineGunRate = serializedObject.FindProperty("rate");
         _magazineAmount = serializedObject.FindProperty("magazineAmount");
+        _timeToExplode = serializedObject.FindProperty("timeToExplode");
     }
     
      public override void OnInspectorGUI()
@@ -136,25 +138,29 @@ public class EnemyActionSettingEditor : Editor
                 EditorGUILayout.EndHorizontal();
             }
         }
+        else
+        {
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("Melee attack settings:", EditorStyles.boldLabel);
+            
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Melee type:");
+            MeleeAttackType melee = (MeleeAttackType) _meleeAttackType.enumValueIndex;
+            melee = (MeleeAttackType) EditorGUILayout.EnumPopup(melee);
+            _meleeAttackType.enumValueIndex = (int) melee;
+            EditorGUILayout.EndHorizontal();
+
+            if (_actionSetting.meleeAttackType == MeleeAttackType.EXPLOSION)
+            {
+                EditorGUILayout.BeginHorizontal();
+                EditorGUILayout.LabelField("Time to explosion:");
+                _timeToExplode.intValue = EditorGUILayout.IntSlider(_timeToExplode.intValue, 0, 5);
+                EditorGUILayout.EndHorizontal();
+            }
+        }
         
         EditorGUILayout.EndVertical();
         serializedObject.ApplyModifiedProperties();
     }
-
-     void Some()
-     {
-         
-        
-     
-        
-        
-
-        if (_actionSetting.actionType == EnemyActionType.DISTANCE)
-        {
-
-            
-
-        }
-        
-     }
+    
 }
