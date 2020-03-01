@@ -8,7 +8,7 @@ public interface IShootBehaviour
 
 public interface IReceiveDamage
 {
-    Damage ApplyDamage(int damage);
+    Damage ApplyDamage(int damage, float angle);
 }
 
 

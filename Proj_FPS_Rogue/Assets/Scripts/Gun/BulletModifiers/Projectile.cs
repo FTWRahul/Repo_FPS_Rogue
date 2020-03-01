@@ -55,7 +55,8 @@ public class Projectile : MonoBehaviour
         if (other.collider.GetComponent<IReceiveDamage>() != null && other.collider.gameObject.layer == _layerToDamage)
         {
             //apply damage will return damage struct with damage data
-            _sender.SetLastDamage(other.collider.GetComponent<IReceiveDamage>().ApplyDamage(_damage)); 
+            _sender.SetLastDamage(other.collider.GetComponent<IReceiveDamage>().ApplyDamage(_damage, MathHelper.DamageAngle(transform, other.transform)));
+
         }
         Destroy(this.gameObject);
     }

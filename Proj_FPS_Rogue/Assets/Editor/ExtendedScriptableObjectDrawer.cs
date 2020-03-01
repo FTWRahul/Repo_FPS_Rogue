@@ -14,7 +14,7 @@ public class ExtendedScriptableObjectDrawer : PropertyDrawer
         {
             return totalHeight;
         }
-		if(property.isExpanded) 
+		if (property.isExpanded) 
 		{
 			var data = property.objectReferenceValue as ScriptableObject;
 			if( data == null ) return EditorGUIUtility.singleLineHeight;
@@ -22,7 +22,8 @@ public class ExtendedScriptableObjectDrawer : PropertyDrawer
 			SerializedProperty prop = serializedObject.GetIterator();
 			if (prop.NextVisible(true)) 
 			{
-				do {
+				do 
+				{
 					if(prop.name == "m_Script") continue;
 					var subProp = serializedObject.FindProperty(prop.name);
 					float height = EditorGUI.GetPropertyHeight(subProp, null, true) + EditorGUIUtility.standardVerticalSpacing;
@@ -56,10 +57,6 @@ public class ExtendedScriptableObjectDrawer : PropertyDrawer
 		} 
 		else 
 		{
-			// So yeah having a foldout look like a label is a weird hack 
-			// but both code paths seem to need to be a foldout or 
-			// the object field control goes weird when the codepath changes.
-			// I guess because foldout is an interactable control of its own and throws off the controlID?
 			foldoutRect.x += 12;
 			EditorGUI.Foldout(foldoutRect, property.isExpanded, guiContent, true, EditorStyles.label);
 		}

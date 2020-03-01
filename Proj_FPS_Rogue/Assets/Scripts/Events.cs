@@ -8,6 +8,7 @@ public class Events
 {
     [System.Serializable] public class OnHealthChangeEvent: UnityEvent <int> {}
     [System.Serializable] public class OnDamageEvent: UnityEvent <int,int> {}
+    [System.Serializable] public class OnDamageUpdateEvent: UnityEvent <float> {}
     [System.Serializable] public class OnShootEvent: UnityEvent {}
     
     [System.Serializable] public class OnReloadStartEvent: UnityEvent {}

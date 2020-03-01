@@ -19,6 +19,7 @@ public class InGameHud : MonoBehaviour
         _healthState = GetComponentInParent<HealthState>();
         _healthState.onDamage.AddListener(UpdateHealthBar);
         _healthState.onLastDamageChanged.AddListener(UpdateCrosshair); 
+        _healthState.onDamageUpdate.AddListener(UpdateDamageIndicator);
     }
 
     private void UpdateHealthBar(int health, int damage)
@@ -29,5 +30,10 @@ public class InGameHud : MonoBehaviour
     private void UpdateCrosshair(Damage damage)
     {
         _crosshair.ShowHitMarker(damage.isLethal);
+    }
+
+    private void UpdateDamageIndicator(float angle)
+    {
+        _crosshair.ShowHitDirectionIndicator(angle);
     }
 }

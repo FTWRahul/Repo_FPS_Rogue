@@ -9,6 +9,7 @@ public class HealthState : MonoBehaviour, IReceiveDamage
     [HideInInspector] public Events.OnHealthChangeEvent onHealthChange;
     [HideInInspector] public Events.OnLastDamageChangedEvent onLastDamageChanged;
     [HideInInspector] public Events.OnDamageEvent onDamage;
+    [HideInInspector] public Events.OnDamageUpdateEvent onDamageUpdate;
     [HideInInspector] public Events.OnDeathEvent onDeath;
 
     #endregion
@@ -46,7 +47,7 @@ public class HealthState : MonoBehaviour, IReceiveDamage
         health = maxHealth;
     }
     
-    public Damage ApplyDamage(int damage)
+    public Damage ApplyDamage(int damage, float angle)
     {
         health -= damage;
         
@@ -56,6 +57,8 @@ public class HealthState : MonoBehaviour, IReceiveDamage
         {
             dead = true;
         }
+        
+        onDamageUpdate?.Invoke(angle);
         return new Damage(dead);
     }
 

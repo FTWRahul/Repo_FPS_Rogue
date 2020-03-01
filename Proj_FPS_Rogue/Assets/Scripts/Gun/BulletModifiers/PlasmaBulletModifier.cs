@@ -34,7 +34,7 @@ public class PlasmaBulletModifier : MonoBehaviour , IBulletModifier
 
     public void Zap(HealthState enemyHealth)
     {
-        enemyHealth.ApplyDamage(damage);
+        enemyHealth.ApplyDamage(damage, MathHelper.DamageAngle(transform, enemyHealth.transform));
         timeBetweenZaps = 0f;
     }
 
