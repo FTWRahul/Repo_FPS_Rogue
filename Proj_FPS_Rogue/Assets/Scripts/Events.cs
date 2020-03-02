@@ -17,4 +17,6 @@ public class Events
     [System.Serializable] public class OnLastDamageChangedEvent: UnityEvent <Damage>{}
     [System.Serializable] public class OnEnemyStateUpdateEvent: UnityEvent <EnemyState>{}
     
+    [System.Serializable] public class OnEnemyEnd: UnityEvent {}
+    
 }
