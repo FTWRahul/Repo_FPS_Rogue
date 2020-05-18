@@ -31,6 +31,7 @@ public interface IBulletModifier
 public interface IMovementBehaviour
 {
     void Move(Vector3 targetPosition);
+    void Dodge();
 }
 
 public interface IAttackBehaviour

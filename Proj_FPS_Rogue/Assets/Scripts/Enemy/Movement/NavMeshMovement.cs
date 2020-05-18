@@ -21,6 +21,11 @@ namespace Enemy
             _navMeshAgent.SetDestination(_desirePosition);
         }
 
+        public void Dodge()
+        {
+            throw new System.NotImplementedException();
+        }
+
         void CalculateDesiredPosition(Vector3 targetPosition)
         {
             if (NavMesh.SamplePosition(targetPosition, out var myNavHit, _navMeshAgent.stoppingDistance, -1))
@@ -57,7 +62,11 @@ namespace Enemy
                     _pursuer.MoveTo(targetPosition + Vector3.up * 3f, true);
             }
         }
-        
+
+        public void Dodge()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 
 }

@@ -7,8 +7,7 @@ namespace Enemy
     public enum EnemyState
     {
         PURSUE,
-        ATTACK,
-        DODGE
+        ATTACK
     }
 
     public enum EnemyMovementType
@@ -94,10 +93,16 @@ namespace Enemy
         {
             inRange = CheckDistance();
             inAngle = CheckAngle();
+            
 
-            if (inRange && inAngle && !isPlayerBlocked && enemyState != EnemyState.ATTACK)
+            if (inRange && inAngle && enemyState != EnemyState.ATTACK)
             {
-                UpdateState(EnemyState.ATTACK);
+                CheckForBlocking();
+                
+                if (!isPlayerBlocked)
+                {
+                    UpdateState(EnemyState.ATTACK);
+                }
             }
             else if(!inRange || !inAngle || isPlayerBlocked && enemyState != EnemyState.PURSUE)
             {
